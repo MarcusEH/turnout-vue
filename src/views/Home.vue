@@ -2,7 +2,7 @@
   <div class="home">
     <h1>{{ message }}</h1>
     <!-- <div v-for="user in users"> -->
-      <a v-bind:href="'/#/users/' + user.id" class="btn btn-secondary">profile</a>
+      <a v-bind:href="'/#/users/show'" class="btn btn-secondary">profile</a>
     <!-- </div> -->
   </div>
 </template>

@@ -5,6 +5,7 @@ import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import UsersShow from './views/UsersShow.vue';
+import UsersEdit from './views/UsersEdit.vue';
 
 
 Vue.use(Router)
@@ -40,9 +41,14 @@ export default new Router({
       component: Logout
     },
     {
-      path: '/users/:id',
+      path: '/users/show',
       name: 'usersShow',
       component: UsersShow
+    },
+    {
+      path: '/users/edit',
+      name: 'usersEdit',
+      component: UsersEdit
     }
   ]
 })
