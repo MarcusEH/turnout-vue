@@ -2,6 +2,7 @@
   <div class="interests-edit">
     <div class="container">
       <h1>{{message}} </h1>
+        <a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a>
         <p>Category: {{interest.category}}</p>
         <p>Level of Interest: {{interest.interest_level}} </p>
         <p>Category: <input type="text" v-model="interest.category"></p> <!--make this drop down-->
