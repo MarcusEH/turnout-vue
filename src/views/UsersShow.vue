@@ -10,8 +10,11 @@
         <p> Groups: {{group.title}} </p>
       </div>
       <p> Openings: {{user.openings}} </p>
-      <p>Interests: {{user.interests}}</p>
-      <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit</a>
+      <div v-for="interest in user.interests">
+        <p>Interests: {{interest}}</p>
+        <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a></p>
+      </div>
+      <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
     </div>
     <!-- <div class="interests-edit">
       <h3>Set Interests:</h3>

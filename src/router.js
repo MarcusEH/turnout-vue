@@ -6,6 +6,7 @@ import Login from './views/Login.vue';
 import Logout from './views/Logout.vue';
 import UsersShow from './views/UsersShow.vue';
 import UsersEdit from './views/UsersEdit.vue';
+import InterestsEdit from './views/InterestsEdit.vue';
 
 
 Vue.use(Router)
@@ -49,6 +50,11 @@ export default new Router({
       path: '/users/edit',
       name: 'usersEdit',
       component: UsersEdit
+    },
+    {
+      path: '/interests/:id/edit',
+      name: 'interestsEdit',
+      component: InterestsEdit
     }
   ]
 })
