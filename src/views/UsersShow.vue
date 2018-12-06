@@ -1,20 +1,26 @@
 <template>
   <div class="home">
     <h1>Profile</h1>
+      <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
     <div>
       <p> First Name: {{user.first_name}}</p>
       <p> Last Name: {{user.last_name}}</p>
       <p> Email: {{user.email}}</p>
-      <p> Groups: {{user.groups}}</p>
+      <!-- <p> Groups: {{user.groups}}</p> -->
       <div v-for="group in user.groups">
         <p> Groups: {{group.title}} </p>
+        <a v-bind:href="'/#/groups/index'" class="btn btn-primary">More</a>
       </div>
+      <hr>
       <p> Openings: {{user.openings}} </p>
-      <div v-for="interest in user.interests">
-        <p>Interests: {{interest}}</p>
-        <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a></p>
+      <a v-bind:href="'/#/openings/create'" class="btn btn-primary">Add Opening</a>
+      <hr>
+      <div class="interests">
+        <div v-for="interest in user.interests">
+          <p>Interests: {{interest}}</p>
+          <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a></p>
+        </div>
       </div>
-      <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
     </div>
     <!-- <div class="interests-edit">
       <h3>Set Interests:</h3>

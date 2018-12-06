@@ -7,6 +7,9 @@ import Logout from './views/Logout.vue';
 import UsersShow from './views/UsersShow.vue';
 import UsersEdit from './views/UsersEdit.vue';
 import InterestsEdit from './views/InterestsEdit.vue';
+import OpeningsCreate from './views/OpeningsCreate.vue';
+import GroupsIndex from './views/GroupsIndex.vue';
+import GroupsShow from './views/GroupsShow.vue';
 
 
 Vue.use(Router)
@@ -55,6 +58,21 @@ export default new Router({
       path: '/interests/:id/edit',
       name: 'interestsEdit',
       component: InterestsEdit
-    }
+    },
+    {
+      path: '/openings/create',
+      name: 'openingsCreate',
+      component: OpeningsCreate
+    },
+    {
+      path: '/groups/index',
+      name: 'groupsIndex',
+      component: GroupsIndex
+    },
+    {
+      path: '/groups/:id',
+      name: 'groupsShow',
+      component: GroupsShow
+    }    
   ]
 })
