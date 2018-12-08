@@ -20,6 +20,7 @@
         </div>
         <p><a v-bind:href="'/#/groups/' + group.id" class="btn btn-secondary">View this group</a></p>
       </div>
+
     </div>
   </div>
 </template>

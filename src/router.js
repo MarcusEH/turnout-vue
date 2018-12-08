@@ -10,6 +10,7 @@ import InterestsEdit from './views/InterestsEdit.vue';
 import OpeningsCreate from './views/OpeningsCreate.vue';
 import GroupsIndex from './views/GroupsIndex.vue';
 import GroupsShow from './views/GroupsShow.vue';
+import GroupsCreate from './views/GroupsCreate.vue';
 
 
 Vue.use(Router)
@@ -70,9 +71,15 @@ export default new Router({
       component: GroupsIndex
     },
     {
+      path: '/groups/create',
+      name: 'groupsCreate',
+      component: GroupsCreate
+    },
+    {
       path: '/groups/:id',
       name: 'groupsShow',
       component: GroupsShow
-    }    
+    },
+              
   ]
 })

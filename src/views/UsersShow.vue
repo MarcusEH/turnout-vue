@@ -2,6 +2,7 @@
   <div class="home">
     <h1>Profile</h1>
       <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
+     <a v-bind:href="'/#/groups/create'" class="btn btn-secondary">New Group</a>
     <div>
       <p> First Name: {{user.first_name}}</p>
       <p> Last Name: {{user.last_name}}</p>
