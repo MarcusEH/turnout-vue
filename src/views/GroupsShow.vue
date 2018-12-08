@@ -19,7 +19,7 @@
       <div class="form-group">
         <div v-for="comment in comments">
           <ul>
-            <li>{{comment}}</li>
+            <li>{{comment.comment_text}} by {{comment.user_id}}</li><!--fix this-->
           </ul>
         </div>
         <label for="comment">Add a Comment:</label>
@@ -43,8 +43,8 @@ export default {
     return {
       group: {},
       message: "Hello, welcome to your group!",
-      comments: [""],
-      newComment: ""
+      comments: [],
+      newComment: "",
     };
   },
   created: function() {
@@ -52,14 +52,26 @@ export default {
       console.log(response.data);
       this.group = response.data;
     });
+    axios.get('http://localhost:3000/api/comments?group_id=' + this.$route.params.id).then(response => {
+      console.log('here are the comments');
+      console.log(response.data);
+      this.comments = response.data
+    });
   },
   methods: {
     submitComment: function() {
       var newComment = document.getElementById("comment").value;
-      var comments = [];
-      console.log(newComment);
-      this.comments.push(newComment);
-      console.log(comments);
+      console.log(document.getElementById("comment").value);
+      var params = {
+        comment_text: newComment,
+        group_id: this.$route.params.id
+      };
+      // console.log(newComment);
+      // this.comments.push(newComment);
+      // console.log(comments);
+      axios.post('http://localhost:3000/api/comments', params).then(response => {
+        this.comments.push(response.data);
+      });
       // this.newComment = "";
     }
   },
