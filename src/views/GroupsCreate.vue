@@ -18,7 +18,8 @@ export default {
   data: function() {
     return {
       message: "Create your Group!",
-      newGroup: {}      
+      newGroup: {},
+      group: {}      
     };
   },
   created: function() {},
@@ -30,12 +31,28 @@ export default {
       };
       axios
         .post('http://localhost:3000/api/groups', params).then(response => {
-          this.groups.push(response.data);
-          this.$router.push('/groups/');
+          // this.groups.push(response.data);
+          console.log(response.data);
+          this.group = response.data;
+          var userGroupParams = {
+            group_id: this.group.id
+          };
+          console.log(this.group.id);
+          axios
+            .post('http://localhost:3000/api/user_groups', userGroupParams).then(response => {
+              console.log(response.data);
+              // this.user_groups.push(response.data);
+              this.$router.push('/groups/');
+            })
+            .catch(error => {
+              console.log("user groups errors");
+              this.error = error.response.data.errors;
+            });
         })
         .catch(error => {
+          console.log("group create errors");
           this.error = error.response.data.errors;
-        });
+        });   
     }
   },
   computed: {}
