@@ -5,6 +5,7 @@
       <p>Name of your group:<input type="text" v-model="newGroup.title"></p>
       <p>Type of event:(optional) <input type="text" v-model="newGroup.event_type"></p>
       <p><button @click="submitGroup()">Create Group</button></p>
+      <a v-bind:href="'/#/groups/join'" class="btn btn-secondary">Join a Group</a>
     </div>
   </div>
 </template>

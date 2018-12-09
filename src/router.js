@@ -7,10 +7,13 @@ import Logout from './views/Logout.vue';
 import UsersShow from './views/UsersShow.vue';
 import UsersEdit from './views/UsersEdit.vue';
 import InterestsEdit from './views/InterestsEdit.vue';
+import InterestsCreate from './views/InterestsCreate.vue';
 import OpeningsCreate from './views/OpeningsCreate.vue';
 import GroupsIndex from './views/GroupsIndex.vue';
 import GroupsShow from './views/GroupsShow.vue';
 import GroupsCreate from './views/GroupsCreate.vue';
+import GroupsJoin from './views/GroupsJoin.vue';
+import EventsCreate from './views/EventsCreate.vue';
 
 
 Vue.use(Router)
@@ -61,6 +64,11 @@ export default new Router({
       component: InterestsEdit
     },
     {
+      path: '/interests/create',
+      name: 'interestsCreate',
+      component: InterestsCreate
+    },
+    {
       path: '/openings/create',
       name: 'openingsCreate',
       component: OpeningsCreate
@@ -76,10 +84,20 @@ export default new Router({
       component: GroupsCreate
     },
     {
+      path: '/groups/join',
+      name: 'groupsJoin',
+      component: GroupsJoin
+    },
+    {
       path: '/groups/:id',
       name: 'groupsShow',
       component: GroupsShow
     },
+    {
+      path: '/events/create',
+      name: 'eventsCreate',
+      component: EventsCreate
+    }
               
   ]
 })

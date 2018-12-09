@@ -8,8 +8,10 @@
           <li>Name: {{user.first_name}} {{user.last_name}} Email: {{user.email}}</li>
         </ul>
       </div>
+
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" v-on:click="setCurrentGroup(group)">Invite New Members</button>
       <p> Current Event Category: {{group.group_event_category}}</p>
+      <a v-bind:href="'/#/events/create'" class="btn btn-secondary">Create an Event</a>
       <div v-for="event in group.group_event">
         <p> Event title: {{event.event_name}}</p>
         <p> location: {{event.location}}</p>

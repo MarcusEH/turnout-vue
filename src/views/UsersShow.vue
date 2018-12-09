@@ -3,6 +3,7 @@
     <h1>Profile</h1>
       <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
      <a v-bind:href="'/#/groups/create'" class="btn btn-secondary">New Group</a>
+     <a v-bind:href="'/#/groups/join'" class="btn btn-primary">See your invites</a>
     <div>
       <p> First Name: {{user.first_name}}</p>
       <p> Last Name: {{user.last_name}}</p>
@@ -19,7 +20,8 @@
       <div class="interests">
         <div v-for="interest in user.interests">
           <p>Interests: {{interest}}</p>
-          <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a></p>
+          <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a>
+          <a v-bind:href="'/#/interests/create'" class="btn btn-secondary">Add an Interest</a></p>
         </div>
       </div>
     </div>
