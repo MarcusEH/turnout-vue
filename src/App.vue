@@ -262,7 +262,7 @@
               <li>&bull;</li>
               <li><a href="#">Privacy</a></li>
             </ul>
-            &copy; All Rights Reserved, Company LTD
+            &copy; All Rights Reserved, Marcus Hamill
           </div>
         </div>
     </footer>

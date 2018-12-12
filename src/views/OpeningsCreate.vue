@@ -5,7 +5,7 @@
     <h1>Create an Opening</h1>
     <p>Start of availability: <input type="datetime-local" v-model="opening.begin_time"></p>
     <p>End of Availability: <input type="datetime-local" v-model="opening.end_time"></p>
-    <p><button @click="submitOpening()">Submit</button> </p>
+    <p><button class="btn btn-primary" @click="submitOpening()">Submit</button> </p>
     </div>
   </div>
 </template>

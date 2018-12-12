@@ -18,5 +18,10 @@ Vue.use(FullCalendar);
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  watch: {
+    '$route': function() {
+      window.location.reload();
+    }
+  }
 }).$mount('#app');
