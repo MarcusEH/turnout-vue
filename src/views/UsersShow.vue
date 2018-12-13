@@ -199,8 +199,11 @@
                         <div class="clearfix mb-10"><!-- squared item -->
                           <div v-for="opening in user.openings">
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> START: {{opening.begin_time}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> END: {{opening.end_time}}</h4></p>
+                            <ol>
+                              <li>
+                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> START: {{opening.begin_time | moment('llll')}}</h4></p>
+                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> END: {{opening.end_time | moment('llll')}}</h4></p></li>
+                            </ol>
                             <!-- <span class="fs-12 text-muted">Lorem ipsum dolor sit amet.</span> -->
                             <hr>
                           </div>

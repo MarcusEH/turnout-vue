@@ -14,6 +14,7 @@ import GroupsShow from './views/GroupsShow.vue';
 import GroupsCreate from './views/GroupsCreate.vue';
 import GroupsJoin from './views/GroupsJoin.vue';
 import EventsCreate from './views/EventsCreate.vue';
+import UsersCalendar from './views/UsersCalendar.vue';
 
 
 Vue.use(Router)
@@ -97,6 +98,11 @@ export default new Router({
       path: '/events/create',
       name: 'eventsCreate',
       component: EventsCreate
+    },
+    {
+      path: '/users/calendar',
+      name: 'usersCalendar',
+      component: UsersCalendar
     }
               
   ]

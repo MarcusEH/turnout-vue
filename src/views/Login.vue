@@ -145,7 +145,7 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           if (response.data.interests.length > 0) {
-            this.$router.push("/");
+            this.$router.push("/users/show");
           }
           else {
             this.$router.push("/groups/create");

@@ -58,12 +58,13 @@
                         <div class="clearfix mb-10"><!-- post item -->
                           <div v-for="user in group.users">
                             <p><img class="thumbnail float-left" src="demo_files/images/people/300x300/6-min.jpg" width="60" height="60" alt="" />
-                            <h4 class="fs-13 m-0 b-0 p-0">NAME: {{user.first_name}} {{user.last_name}}</h4></p>
+                            <h4 class="fs-13 m-0 b-0 p-0">
+                              NAME: {{user.first_name}} {{user.last_name}}</h4></p>
                             <p><h4 class="fs-13 m-0 b-0 p-0">EMAIL: {{user.email}}</h4></p>
                             <hr>
                           </div>
                         </div><!-- /post item -->
-
+                        <h3><a v-bind:href="'/#/groups/' + group.id" class="float-right fs-11 text-warning">VIEW THIS GROUP</a></h3>
                       </div>
                     </div>
 
@@ -96,10 +97,10 @@
                         <div class="clearfix mb-10"><!-- squared item -->
                           <div v-for="event in group.group_event">
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Event: {{event.event_name}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Location: {{event.location}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment('llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment('llll')}}</h4></p>
                             <!-- <span class="fs-12 text-muted">Lorem ipsum dolor sit amet.</span> -->
                             <hr>
                           </div>

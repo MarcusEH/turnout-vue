@@ -5,7 +5,7 @@ import axios from 'axios';
 import FullCalendar from 'vue-full-calendar';
 
 // import "fullcalendar-scheduler";
-import 'fullcalendar/dist/fullcalendar.css';
+import '../node_modules/fullcalendar/dist/fullcalendar.css';
 // import "fullcalendar-scheduler/dist/scheduler.min.css";
 
 var jwt = localStorage.getItem("jwt");
@@ -15,6 +15,7 @@ if (jwt) {
 
 Vue.config.productionTip = false;
 Vue.use(FullCalendar);
+Vue.use(require('vue-moment'));
 
 new Vue({
   router,

@@ -36,7 +36,7 @@
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
                 <h3>Your links</h3>
-                <li class="list-group-item active"><a href="/#/invites/create"><i class="fa fa-eye"></i> PROFILE</a></li>
+                <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-eye"></i> PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
                 <li class="list-group-item"><a href="/#/groups/create"><i class="fa fa-comments"></i> CREATE A GROUP</a></li>
@@ -112,10 +112,10 @@
                         <div class="clearfix mb-10"><!-- squared item -->
                           <div v-for="event in group.group_event">
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Event: {{event.event_name}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Location: {{event.location}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment('llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment('llll')}}</h4></p>
                             <!-- <span class="fs-12 text-muted">Lorem ipsum dolor sit amet.</span> -->
                             <hr>
                           </div>

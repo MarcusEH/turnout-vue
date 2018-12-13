@@ -8907,6 +8907,8 @@ section.dark-2 div.category-grid .card {
 	/* Footer Logo */
 	#footer img.footer-logo {
 		margin-bottom:20px;
+		height: 50px;
+		width: 50px;
 		display:block;
 	}
 
