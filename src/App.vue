@@ -41,7 +41,7 @@
             <!-- /BUTTONS -->
 
             <!-- Logo -->
-            <a class="logo float-left" href="index.html">
+            <a class="logo float-left" href="/">
               <img src="assets/images/demo-t.png" alt="" />
             </a>
 
@@ -63,6 +63,7 @@
                       <ul class="dropdown-menu">
                         <li><a href="#/signup">SIGNUP</a></li>
                         <li><a href="#/login">LOGIN</a></li>
+                        <li><a href="#/logout">LOGOUT</a></li>
                       </ul>
                      </li> 
                    </li>
@@ -73,13 +74,12 @@
                       </a>
                       <ul class="dropdown-menu">
                         <li class="dropdown">
-                          <a class="dropdown-toggle" href="#/">
+                          <a class="dropdown-toggle" >
                           Profile
                           </a>
                           <ul class="dropdown-menu">
                             <li class="dropdown"><a href="#/users/show">View Profile</a></li>
                             <li><a href="#/users/edit">Edit Profile</a></li>
-                            <li><a href="#/">Upload a picture</a></li>
                           </ul>
                         </li>
                         <li class="dropdown">
@@ -97,7 +97,7 @@
                           EVENTS
                           </a>
                           <ul class="dropdown-menu">
-                            <li><a href="#/events/index">YOUR EVENTS</a></li>
+                            <!-- <li><a href="#/events/index">YOUR EVENTS</a></li> -->
                             <li><a href="#/users/calendar">YOUR CALENDAR</a></li>
                             <li><a href="#/openings/create">ADD AVAILABILITY</a></li>
                           </ul>
@@ -272,3 +272,6 @@
 <style>
 
 </style>
+<script>
+
+</script>

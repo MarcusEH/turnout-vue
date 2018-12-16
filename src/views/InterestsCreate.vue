@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <!-- <div v-for="category in categories"> -->
-    <select id="category">
+    
+    
+  <!--   <select id="category">
       <option value="sports">sports</option>
       <option value="movies">movies</option>
       <option value="music">music</option>
@@ -12,9 +12,71 @@
     </select>
     <p><input type="number" v-model="newInterestLevel"></p>
     <button @click="addInterest(newInterestLevel)">Add</button>
-    <!-- <button @click="submitInterests()">Finalize</button> -->
-    <!-- </div> -->
-  <p>Special events are... Custom events are...</p>
+   
+  <p>Special events are... Custom events are...</p> -->
+  <section>
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+              <div class="toggle toggle-transparent toggle-accordion toggle-noicon">
+
+                <div class="toggle active">
+                  <label class="fs-20"><i class="fa fa-smile-o"></i> &nbsp; Add an Interest!</label>
+                  <div class="toggle-content">
+                    <div>
+                      <div class="clearfix">
+
+                        <select id="category">
+                          <option value="sports">sports</option>
+                          <option value="movies">movies</option>
+                          <option value="music">music</option>
+                          <option value="food">food</option>
+                          <option value="special">special</option>
+                          <option value="custom">custom</option>
+                        </select>
+                      <!-- interest level -->
+                        <label>How much does this type of event interest you? (scale 0-10) </label>
+                        <label class="input mb-10">
+                          <i class="ico-append fa fa-sort-numeric-desc"></i>
+                          <input type="number" v-model="newInterestLevel" min=0 max=10>
+                          <b class="tooltip tooltip-bottom-right">Love it? Hate it? Kind of meh?</b>
+                        </label>
+
+                      
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-6 col-sm-6 col-6">
+                          
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 col-6 text-right">
+
+                          <button class="btn btn-primary" @click="addInterest(newInterestLevel)"><i class="fa fa-check"></i> SUBMIT</button>
+
+                        </div>
+                          <p>Special events are are events that may only occur once but are not user created such as a special theme day at a museum.</p>
+                          <p>Custom events are your own events that do not fit in the other categories. Example: a party hosted by a group member at their home.</p>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+  </section>
   </div>
 </template>
 
@@ -26,7 +88,7 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
-      message: "What would you like to do?",
+      
       // categories: ["sports", "movies", "music", "food", "special", "custom"],
       newInterestLevel: 0,
       interests: []

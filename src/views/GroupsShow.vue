@@ -28,10 +28,18 @@
             <div class="col-lg-3 col-md-3 col-sm-4">
             <!-- profile picture and name-->
               <div class="thumbnail text-center">
-                <img class="img-fluid" src="demo_files/images/people/460x700/8-min.jpg" alt="" />
+                <div v-if="group.group_image">
+                  <img class="img-fluid" v-bind:src="group.group_image.url" alt="public/assets/images/eggoworld.jpg" />
+                </div>
+                <div v-else>
+                  <img class="img-fluid" src="assets/images/eggoworld.jpg" alt="" />
+                </div>
                 <h2 class="fs-18 mt-10 mb-0">{{group.title}}</h2>
                 <h3 class="fs-11 mt-0 mb-10 text-muted">{{group.event_type}}</h3>
               </div>
+              <ul class="side-nav list-group mb-60" id="sidebar-nav">
+                <li class="list-group-item"><a v-bind:href="'/#/groups/edit/' + group.id">Edit Group</a></li>
+              </ul>
 
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
@@ -72,7 +80,7 @@
 
                         <div class="clearfix mb-10"><!-- post item -->
                           <div v-for="user in group.users">
-                            <p><img class="thumbnail float-left" src="demo_files/images/people/300x300/6-min.jpg" width="60" height="60" alt="" />
+                            <!-- <p><img class="thumbnail float-left" v-bind:src="user.user_image.url" width="60" height="60" alt="" /> -->
                             <h4 class="fs-13 m-0 b-0 p-0">NAME: {{user.first_name}} {{user.last_name}}</h4></p>
                             <p><h4 class="fs-13 m-0 b-0 p-0">EMAIL: {{user.email}}</h4></p>
                             <hr>
@@ -172,8 +180,8 @@
             <p>Email<input type="text" v-model="newInvite"></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button @click="submitInvite()" type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button @click="submitInvite()" type="button" class="btn btn-primary">Add To The Group</button>
           </div>
         </div>
       </div>

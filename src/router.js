@@ -10,11 +10,14 @@ import InterestsEdit from './views/InterestsEdit.vue';
 import InterestsCreate from './views/InterestsCreate.vue';
 import OpeningsCreate from './views/OpeningsCreate.vue';
 import GroupsIndex from './views/GroupsIndex.vue';
+import GroupsEdit from './views/GroupsEdit.vue';
 import GroupsShow from './views/GroupsShow.vue';
 import GroupsCreate from './views/GroupsCreate.vue';
 import GroupsJoin from './views/GroupsJoin.vue';
 import EventsCreate from './views/EventsCreate.vue';
 import UsersCalendar from './views/UsersCalendar.vue';
+import UserGoogleCalendar from './views/UserGoogleCalendar.vue';
+
 
 
 Vue.use(Router)
@@ -90,6 +93,11 @@ export default new Router({
       component: GroupsJoin
     },
     {
+      path: '/groups/edit/:id',
+      name: 'groupsEdit',
+      component: GroupsEdit
+    },
+    {
       path: '/groups/:id',
       name: 'groupsShow',
       component: GroupsShow
@@ -103,6 +111,11 @@ export default new Router({
       path: '/users/calendar',
       name: 'usersCalendar',
       component: UsersCalendar
+    },
+    {
+      path: '/users/googlecalendar',
+      name: 'userGoogleCalendar',
+      component: UserGoogleCalendar
     }
               
   ]

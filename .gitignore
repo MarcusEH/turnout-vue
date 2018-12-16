@@ -19,3 +19,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+#google calendar
+/src/views/UserGoogleCalendar.vue
+#creds
+credentials.json

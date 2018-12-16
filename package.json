@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "googleapis": "^27.0.0",
     "vue": "^2.5.17",
     "vue-full-calendar": "^2.7.0",
+    "vue-gapi": "0.0.10",
     "vue-moment": "^4.0.0",
     "vue-router": "^3.0.1"
   },

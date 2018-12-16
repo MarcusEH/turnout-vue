@@ -1,5 +1,5 @@
 <template>
-  <div class="users-edit">
+  <div class="group-edit">
     <section>
       <div class="container">
         <div class="row">
@@ -8,10 +8,8 @@
             <div class="col-lg-9 col-md-9 col-sm-8 order-md-2 order-sm-2 mb-80">
 
               <ul class="nav nav-tabs nav-top-border">
-                <li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
-                <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
-                <!-- <li><a href="#password" data-toggle="tab">Password</a></li> -->
-                <!-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> -->
+                <li class="active"><a href="#info" data-toggle="tab">Group Info</a></li>
+                <li><a href="#avatar" data-toggle="tab">Group Avatar</a></li>
               </ul>
 
               <div class="tab-content mt-20">
@@ -20,18 +18,13 @@
                 <div class="tab-pane active" id="info">
                   <div>
                     <div class="form-group">
-                      <label class="form-control-label">First Name</label>
-                      <input type="text" placeholder="First Name" class="form-control" v-model="user.first_name">
+                      <label class="form-control-label">Group Name:</label>
+                      <input type="text" placeholder="" class="form-control" v-model="group.title">
                     </div>
                     <div class="form-group">
-                      <label class="form-control-label">Last Name</label>
-                      <input type="text" placeholder="Last Name" class="form-control" v-model="user.last_name">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label">Email</label>
-                      <input type="text" placeholder="" class="form-control" v-model="user.email">
-                    </div>
-                    
+                      <label class="form-control-label">Event Type:</label>
+                      <input type="text" placeholder="ex. casual" class="form-control" v-model="group.event_type">
+                    </div>                    
                     <div class="margiv-top10">
                       <button @click="submit()" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
                       <a href="#/user/show" class="btn btn-default">Cancel </a>
@@ -51,11 +44,11 @@
                         <div class="col-md-3 col-sm-4">
 
                           <div class="thumbnail">
-                            <div v-if="user.user_image">
-                              <img class="img-fluid" v-bind:src="user.user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" />
+                            <div v-if="group.group_image">
+                              <img class="img-fluid" v-bind:src="group.group_image.url" alt="" />
                             </div>
                             <div v-else>
-                             <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" />
+                             <img class="img-fluid" src="assets/images/eggoworld.jpg" alt="" />
                             </div>
                           </div>
 
@@ -139,13 +132,13 @@
             <div class="col-lg-3 col-md-3 col-sm-4 pull-lg-9 order-md-1 order-sm-1">
             
               <div class="thumbnail text-center">
-                <div v-if="user.user_image">
-                  <img class="img-fluid" v-bind:src="user.user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" />
+                <div v-if="group.group_image">
+                  <img class="img-fluid" v-bind:src="group.group_image.url" alt="public/assets/images/eggoworld.jpg" />
                 </div>
-                  <div v-else>
-                    <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" />
-                  </div>
-                <h2 class="fs-18 mt-10 mb-0">{{user.first_name}} {{user.last_name}}</h2>
+                <div v-else>
+                  <img class="img-fluid" src="assets/images/eggoworld.jpg" alt="" />
+                </div>
+                <h2 class="fs-18 mt-10 mb-0">{{group.title}}</h2>
                 <!-- <h3 class="fs-11 mt-0 mb-10 text-muted">DEVELOPER</h3> -->
               </div>
 
@@ -174,53 +167,69 @@
 </style>
 
 <script>
-import axios from "axios";
+var axios = require('axios');
 export default {
   data: function() {
     return {
-      user: {},
-      errors: [],
-      newImage: {}
+      group: {},
+      newImage: {},
+      errors: []
     };
   },
   created: function() {
-    axios.get('http://localhost:3000/api/users/show').then(response => {
+    console.log(this.$route.params.id);
+    axios.get('http://localhost:3000/api/groups/' + this.$route.params.id).then(response => {
       console.log(response.data);
-      this.user = response.data;
+      this.group = response.data;
     });
   },
   methods: {
     submit: function() {
       var params = {
-        first_name: this.user.first_name,
-        last_name: this.user.last_name,
-        email: this.user.email,
-        // image_url: this.user.imageUrl
-        // password: this.user.password,
-        // password_confirmation: this.user.password_confirmation,
+        id: this.group.id,
+        title: this.group.title,
+        event_type: this.group.event_type
       };
+      console.log(params);
       axios
-        .patch('http://localhost:3000/api/users/edit', params).then(response => {
-          this.$router.push('/users/show');
+        .patch('http://localhost:3000/api/groups/edit', params).then(response => {
+          this.$router.push('/groups/' + this.$router.params.id);
         })
         .catch(error => {
           this.errors = error.response.data.errors;
         });
     },
     submitImage: function() {
-      var params = {
-        url: this.newImage.image_url
-        // image_file: document.getElementById("file").value
-      };
-      axios
-        .patch('http://localhost:3000/api/user_images/edit', params).then(response => {
-          console.log('before redirect');
-          this.$router.push('/users/show');
-        })
-        .catch(error => {
-          console.log('in the errors');
-          this.error = error.response.data.errors;
-        });
+      if (this.group.group_image) {
+        var params = {
+          id: this.group.id,
+          url: this.newImage.image_url
+        };
+        axios 
+          .patch('http://localhost:3000/api/group_images/edit', params).then(response => {
+            console.log('before redirect');
+            this.$router.push('/groups/' + this.$router.params.id);
+          })
+          .catch(error => {
+            console.log('in the errors');
+            this.errors = error.response.data.errors;
+          });
+      } else {
+        var postParams = {
+          group_id: this.group.id,
+          url: this.newImage.image_url
+        };
+        axios
+          .post('http://localhost:3000/api/group_images', postParams).then(response => {
+            console.log('in the post request for images');
+            console.log(response.data);
+            this.$router.push('/groups/' + this.$router.params.id);
+          })
+          .catch(error => {
+            console.log('in the post request errors for images');
+            this.errors = error.response.data.errors;
+          });
+      }
     }
   },
   computed: {}

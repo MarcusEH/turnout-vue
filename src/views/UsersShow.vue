@@ -33,19 +33,16 @@
             <div class="col-lg-3 col-md-3 col-sm-4">
             <!-- profile picture and name-->
               <div class="thumbnail text-center">
-                <img class="img-fluid" src="demo_files/images/people/460x700/8-min.jpg" alt="" />
+                <!--here be the image error-->
+                <div v-if="user.user_image">
+                  <img class="img-fluid" v-bind:src="user.user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" />
+                </div>
+                <div v-else>
+                  <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" />
+                </div>
                 <h2 class="fs-18 mt-10 mb-0">{{user.first_name}} {{user.last_name}}</h2>
-                <!-- <h3 class="fs-11 mt-0 mb-10 text-muted">DEVELOPER</h3> -->
               </div>
 
-              <!-- completed  NOPE-->
-              <!-- <div class="mb-30">
-                <label>88% completed profile</label>
-                <div class="progress progress-xxs">
-                  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" style="width: 88%; min-width: 2em;"></div>
-                </div>
-              </div> -->
-              <!-- /completed -->
 
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
@@ -56,92 +53,19 @@
                 <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-eye"></i>YOUR GROUPS</a></li>
                 <li class="list-group-item"><a href="/#/openings/create"><i class="fa fa-gears"></i>ADD AN OPENING</a></li>
                 <li class="list-group-item"><a href="/#/interests/create"><i class="fa fa-gears"></i>ADD INTERESTS</a></li>
-                <!-- <li class="list-group-item"><a href="/#/interests/edit"><i class="fa fa-gears"></i>EDIT INTERESTS</a></li> -->
-
-                <!-- <li class="list-group-item list-toggle">              
-                  <a data-toggle="collapse" href="#collapse-1">DROPDOWN EXAMPLE</a>
-                  
-                  <ul id="collapse-1" class="collapse">
-                    <li><a href="#"><i class="fa fa-angle-right"></i> SUMBENU 1</a></li>
-                    <li>
-                      <span class="badge badge-red">New</span>
-                      <a href="#"><i class="fa fa-angle-right"></i> SUMBENU 2</a>
-                    </li>
-                    <li class="active"><a href="#"><i class="fa fa-angle-right"></i> SUMBENU 3</a></li>
-                    <li><a href="#"><i class="fa fa-angle-right"></i> SUMBENU 4</a></li>
-                  </ul>
-                </li> -->
               </ul>
-              <!-- /SIDE NAV -->
-
-
-              <!-- info -->
-              <!-- <div class="box-light mb-30">
-                <div class="row mb-20">
-                  <div class="col-md-4 col-sm-4 col-4 text-center bold">
-                    <h2 class="fs-30 mt-10 mb-0 font-raleway">12</h2>
-                    <h3 class="fs-11 mt-0 mb-10 text-info">PROJECTS</h3>
-                  </div>
-
-                  <div class="col-md-4 col-sm-4 col-4 text-center bold">
-                    <h2 class="fs-30 mt-10 mb-0 font-raleway">34</h2>
-                    <h3 class="fs-11 mt-0 mb-10 text-info">TASKS</h3>
-                  </div>
-
-                  <div class="col-md-4 col-sm-4 col-4 text-center bold">
-                    <h2 class="fs-30 mt-10 mb-0 font-raleway">32</h2>
-                    <h3 class="fs-11 mt-0 mb-10 text-info">UPLOADS</h3>
-                  </div>
-                </div>
-                /info
-
-                <div class="text-muted">
-                  <h2 class="fs-18 text-muted mb-6"><b>About</b> Felicia Doe</h2>
-                  <p>Lorem ipsum dolor sit amet diam nonummy nibh dolore.</p>
-                  
-                  <ul class="list-unstyled m-0">
-                    <li class="mb-10"><i class="fa fa-globe fw-20 hidden-xs-down hidden-sm"></i> <a href="http://www.stepofweb.com">www.stepofweb.com</a></li>
-                    <li class="mb-10"><i class="fa fa-facebook fw-20 hidden-xs-down hidden-sm"></i> <a href="http://www.facebook.com/stepofweb">stepofweb</a></li>
-                    <li class="mb-10"><i class="fa fa-twitter fw-20 hidden-xs-down hidden-sm"></i> <a href="http://www.twitter.com/stepofweb">@stepofweb</a></li>
-                  </ul>
-                </div>
-              
-              </div> -->
-
             </div>
 
 
             <!-- RIGHT -->
             <div class="col-lg-9 col-md-9 col-sm-8">
 
-              <!-- FLIP BOX -->
-            <!--  <div class="box-flip box-icon box-icon-center box-icon-round box-icon-large text-center m-0">
-                <div class="front">
-                  <div class="box1 rad-0">
-                    <div class="box-icon-title">
-                      <i class="fa fa-user"></i>
-                      <h2>Felica Doe &ndash; Profile</h2>
-                    </div>
-                    <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere</p>
-                  </div>
-                </div>
-
-                <div class="back">
-                  <div class="box2 rad-0">
-                    <h4>WHO AM I?</h4>
-                    <hr />
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
-                  </div>
-                </div>
-              </div> -->
-              <!-- /FLIP BOX -->
-
 
               <div class="box-light"><!-- .box-light OR .box-dark -->
 
                 <div class="row">
 
-                  <!-- POPULAR POSTS -->
+                  <!-- GROUPS -->
                   <div class="col-md-6 col-sm-6">
 
                     <div class="box-inner">
@@ -159,11 +83,6 @@
                             <hr>
                           </div>
                         </div><!-- /post item -->
-
-                
-
-
-
                       </div>
                     </div>
 
@@ -183,7 +102,7 @@
                     </div>
 
                   </div>
-                  <!-- /POPULAR POSTS -->
+                  <!-- /GROUPS -->
 
                   <!-- OPENINGS -->
                   <div class="col-md-6 col-sm-6">
@@ -307,6 +226,7 @@ export default {
   data: function() {
     return {
       user: {},
+      // user_image: {url: ""}
       // user_interest: {}
     };
   },

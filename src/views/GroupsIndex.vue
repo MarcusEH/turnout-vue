@@ -13,25 +13,15 @@
             <div class="col-lg-3 col-md-3 col-sm-4">
             <!-- profile picture and name-->
               <div class="thumbnail text-center">
-                <img class="img-fluid" src="demo_files/images/people/460x700/8-min.jpg" alt="" />
+                <div v-if="group.group_image">
+                  <img class="img-fluid" v-bind:src="group.group_image.url" alt="public/assets/images/eggoworld.jpg" />
+                </div>
+                <div v-else>
+                  <img class="img-fluid" src="assets/images/eggoworld.jpg" alt="" />
+                </div>
                 <h2 class="fs-18 mt-10 mb-0">{{group.title}}</h2>
                 <h3 class="fs-11 mt-0 mb-10 text-muted">{{group.event_type}}</h3>
               </div>
-
-              <!-- SIDE NAV  USE THIS-->
-          <!--     <ul class="side-nav list-group mb-60" id="sidebar-nav">
-                <h3>Your links</h3>
-                <li class="list-group-item active"><a href="/#/invites/create"><i class="fa fa-eye"></i> PROFILE</a></li>
-                <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
-                <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
-                <li class="list-group-item"><a href="/#/groups/create"><i class="fa fa-comments"></i> CREATE A GROUP</a></li>
-                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-eye"></i>YOUR GROUPS</a></li>
-                <li class="list-group-item"><a href="/#/openings/create"><i class="fa fa-gears"></i>ADD AN OPENING</a></li>
-                <li class="list-group-item"><a href="/#/interests/create"><i class="fa fa-gears"></i>ADD INTERESTS</a></li>
-                <li class="list-group-item"><a href="/#/interests/edit"><i class="fa fa-gears"></i>EDIT INTERESTS</a></li>
-              </ul> -->
-              <!-- /SIDE NAV -->
-
             </div>
 
 
@@ -48,7 +38,6 @@
 
                     <div class="box-inner">
                       <h3>
-                        <!--broken link-->
                         <a v-bind:href="'/#/groups/' + group.id" class="float-right fs-11 text-warning">VIEW THIS GROUP</a>
                         MEMBERS
                       </h3>
