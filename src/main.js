@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router';
 import axios from 'axios';
 import FullCalendar from 'vue-full-calendar';
-// import VueGAPI from 'vue-gapi';
+import VueGAPI from 'vue-gapi';
 // import GoogleAuthLibrary from 'google-auth-library';
 
 // import "fullcalendar-scheduler";

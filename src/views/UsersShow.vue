@@ -77,8 +77,14 @@
                       
 
                         <div class="clearfix mb-10"><!-- post item -->
-                          <div v-for="group in user.groups">
-                            <p><img class="thumbnail float-left" src="demo_files/images/people/300x300/6-min.jpg" width="60" height="60" alt="" />
+                          <div v-for="group in groups">
+                            <p>
+                              <div v-if="group.group_image">
+                               <img class="thumbnail float-left" v-bind:src="group.group_image.url" width="60" height="50" alt="" />
+                              </div>
+                              <div v-else>
+                                <img class="thumbnail float-left" src="assets/images/eggoworld.jpg"width="60" height="60" alt="" />
+                              </div>
                             <h4 class="fs-13 m-0 b-0 p-0"><a v-bind:href='"/#/groups/" + group.id'>{{group.title}}</a></h4></p>
                             <hr>
                           </div>
@@ -226,6 +232,7 @@ export default {
   data: function() {
     return {
       user: {},
+      groups: []
       // user_image: {url: ""}
       // user_interest: {}
     };
@@ -234,6 +241,10 @@ export default {
     axios.get('http://localhost:3000/api/users/show').then(function(response) {
       console.log(response.data);
       this.user = response.data;
+    }.bind(this));
+    axios.get('http://localhost:3000/api/groups/').then(function(response) {
+      console.log(response.data);
+      this.groups = response.data;
     }.bind(this));
   },
   methods: {},

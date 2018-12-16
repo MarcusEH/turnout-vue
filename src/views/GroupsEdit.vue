@@ -60,13 +60,6 @@
                             <!--here is the picture upload-->
                             <p>Image Url:</p>
                             <input type="text" v-model="newImage.image_url"></p>
-                            <!-- <label class="label">Select File</label>
-                            <label for="file" class="input input-file">
-                             
-                              <div class="button">
-                                <input type="file" id="file" onchange="this.parentNode.nextSibling.value = this.value">Browse
-                              </div><input type="text" readonly>
-                            </label> -->
                           </div>
 
                           <!-- <a href="/#/users/edit" class="btn btn-danger btn-sm rad-0"><i class="fa fa-times"></i> Remove Avatar</a> -->
@@ -77,54 +70,17 @@
                               Post only images you own!
                             </p>
                           </div>
-
                         </div>
-
                       </div>
-
                     </div>
-
                     <div class="margiv-top10">
                       <button @click="submitImage()" class="btn btn-primary">Save Changes </button>
                       <a href="/#/users/show" class="btn btn-default">Cancel </a>
                     </div>
-
                   </div>
-
                 </div>
                 <!-- /AVATAR TAB -->
-
-                <!-- PASSWORD TAB -->
-                <!-- <div class="tab-pane fade" id="password">
-
-                  <form action="#" method="post">
-
-                    <div class="form-group">
-                      <label class="form-control-label">Current Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label">New Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label">Re-type New Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-
-                    <div class="margiv-top10">
-                      <a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Change Password</a>
-                      <a href="#" class="btn btn-default">Cancel </a>
-                    </div>
-
-                  </form>
-
-                </div> -->
-                <!-- /PASSWORD TAB -->
-
-                
               </div>
-
             </div>
 
             
@@ -223,6 +179,19 @@ export default {
           .post('http://localhost:3000/api/group_images', postParams).then(response => {
             console.log('in the post request for images');
             console.log(response.data);
+            var groupParams = {
+              id: response.data.group_id,
+              group_image_id: response.data.id
+            };
+            axios
+              .patch('http://localhost:3000/api/groups/edit', groupParams).then(response => {
+                console.log('in the patch request for group');
+                console.log(response.data);
+              })
+              .catch(error => {
+                console.log('in the patch to group errors');
+                this.errors = error.response.data.errors;
+              })
             this.$router.push('/groups/' + this.$router.params.id);
           })
           .catch(error => {

@@ -99,6 +99,7 @@
                           <ul class="dropdown-menu">
                             <!-- <li><a href="#/events/index">YOUR EVENTS</a></li> -->
                             <li><a href="#/users/calendar">YOUR CALENDAR</a></li>
+                            <li><a href="#/users/googlecalendar">GOOGLE CALENDAR</a></li>
                             <li><a href="#/openings/create">ADD AVAILABILITY</a></li>
                           </ul>
                         </li>

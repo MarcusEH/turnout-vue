@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="margiv-top10">
-                      <button @click="submitImage()" class="btn btn-primary">Save Changes </button>
+                      <button @click="submitImage()" class="btn btn-primary"><i class="fa fa-camera-retro"></i>Save Changes </button>
                       <a href="/#/users/show" class="btn btn-default">Cancel </a>
                     </div>
 
@@ -208,19 +208,49 @@ export default {
         });
     },
     submitImage: function() {
-      var params = {
-        url: this.newImage.image_url
+      if (this.user.user_image) {
+        var params = {
+          url: this.newImage.image_url
+        };
+      
         // image_file: document.getElementById("file").value
-      };
-      axios
-        .patch('http://localhost:3000/api/user_images/edit', params).then(response => {
-          console.log('before redirect');
-          this.$router.push('/users/show');
-        })
-        .catch(error => {
-          console.log('in the errors');
-          this.error = error.response.data.errors;
-        });
+      
+        axios
+          .patch('http://localhost:3000/api/user_images/edit', params).then(response => {
+            console.log('before redirect');
+            this.$router.push('/users/show');
+          })
+          .catch(error => {
+            console.log('in the errors');
+            this.error = error.response.data.errors;
+          });
+      } else {
+        var postParams = {
+          url: this.newImage.image_url
+        };
+        axios
+          .post('http://localhost:3000/api/user_images', postParams).then(response => {
+            console.log('in the post request for images');
+            console.log(response.data);
+            var userParams = {
+              user_image_id: response.data.id
+            };
+            axios
+              .patch('http://localhost:3000/api/users/edit', userParams).then(response => {
+                console.log('in the patch request for users');
+                console.log(response.data);
+              })
+              .catch(error => {
+                console.log('in the patch to users errors');
+                this.errors = error.response.data.errors;
+              })
+            this.$router.push('/users/show');
+          })
+          .catch(error => {
+            console.log('in the post request errors for images');
+            this.errors = error.response.data.errors;
+          });
+      }
     }
   },
   computed: {}
