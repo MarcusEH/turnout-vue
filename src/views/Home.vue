@@ -11,18 +11,6 @@
             <h6><i class="icon-heart"></i> WHY TURNOUT?</h6>
             <p>This app is simple to use and easy to share. Create your groups and events in no time. Designed to be simple and easy for you to use! </p>
           </div>
-
-          <!-- <div class="col-md-4">
-            <h6><i class="fa-facheck"></i> RECENTLY VISITED</h6>
-            <ul class="list-unstyled">
-              <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> This is a very long text, very very very very very very very very very very very very </a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Dolor sit amet,consectetur adipiscing elit amet</a></li>
-              <li><a href="#"><i class="fa fa-angle-right"></i> Consectetur adipiscing elit amet,consectetur adipiscing elit</a></li>
-            </ul>
-          </div> -->
-
           <div class="col-md-4">
             <h6><i class="icon-envelope"></i> CONTACT INFO</h6>
             <ul class="list-unstyled">
@@ -161,7 +149,7 @@
                   data-endelementdelay="0.1" 
                   data-endspeed="300" 
                   style="z-index: 2;">
-                  <img src="assets/images/_smarty/1x1.png" data-lazyload="demo_files/images/ipad.png" alt="" />
+                  <!-- <img src="assets/images/_smarty/1x1.png" data-lazyload="demo_files/images/ipad.png" alt="" /> -->
                 </div>
 
                 <div class="tp-caption block_black sft" 
@@ -250,7 +238,7 @@
                   data-endelementdelay="0.1" 
                   data-endspeed="300" 
                   style="z-index: 2;">
-                  <img src="assets/images/_smarty/1x1.png" alt="" data-lazyload="demo_files/images/desktop_slider.png">
+                  <!-- <img src="assets/images/_smarty/1x1.png" alt="" data-lazyload="demo_files/images/desktop_slider.png"> -->
                 </div>
 
                 <div class="tp-caption mediumlarge_light_white lfb tp-resizeme" 
@@ -335,7 +323,7 @@
       <div class="container">
 
         <p>
-          Add to body: <code>.grain-green</code> class.
+          <!-- Add to body: <code>.grain-green</code> class. -->
         </p>
         
         <hr />

@@ -6980,9 +6980,10 @@ section.dark .box-static .box-title {
 	background-color:rgba(0,0,0,0.05);
 }
 .box-dark {
-	color:#fff;
+	color:#474747;
+	background-color:#e9f1eb;
 	padding:15px;
-	background-color:#333;
+	
 }
 	.box-dark h1,
 	.box-dark h2,
@@ -6990,12 +6991,13 @@ section.dark .box-static .box-title {
 	.box-dark h4,
 	.box-dark h5,
 	.box-dark h6 {
-		color:#fff;
+		color:#474747
 	}
 	
 .box-inner {
 	padding:15px;
 	display:block;
+
 }
 .box-inner h1,
 .box-inner h2,

@@ -20,7 +20,7 @@
               <label class="fs-20"><i class="fa fa-leaf"></i> &nbsp; Create your Group!</label>
               <div class="toggle-content">
 
-                <div class="groups-create">
+                <div class="groups-new">
                   <div class="sky-form">
                     <div class="clearfix">
                       
@@ -48,7 +48,7 @@
                       <div class="col-md-6 col-sm-6 col-6 text-right">
 
                         <button class="btn btn-primary" @click="submitGroup()"><i class="fa fa-check"></i> CREATE GROUP</button>
-                        <a v-bind:href="'/#/groups/join'"  class="btn btn-secondary"><i class="fa fa-handshake-o"></i> Join a group</a>
+                        <a v-bind:href="'/#/groups/join'"  class="btn btn-secondary"><i class="fa fa-handshake-o"></i> JOIN A GROUP&nbsp</a>
                       </div>
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export default {
             });
         })
         .catch(error => {
-          console.log("group create errors");
+          console.log("group create request errors");
           this.error = error.response.data.errors;
         });   
     }

@@ -88,7 +88,7 @@
                           </a>
                           <ul class="dropdown-menu">
                             <li><a href="#/groups/index">YOUR GROUPS</a></li>
-                            <li><a href="#/groups/create">CREATE A GROUP</a></li>
+                            <li><a href="#/groups/new">CREATE A GROUP</a></li>
                             <li><a href="#/groups/join">Join A GROUP</a></li>
                           </ul>
                         </li>
@@ -100,11 +100,10 @@
                             <!-- <li><a href="#/events/index">YOUR EVENTS</a></li> -->
                             <li><a href="#/users/calendar">YOUR CALENDAR</a></li>
                             <li><a href="#/users/googlecalendar">GOOGLE CALENDAR</a></li>
-                            <li><a href="#/openings/create">ADD AVAILABILITY</a></li>
+                            <li><a href="#/openings/new">ADD AVAILABILITY</a></li>
                           </ul>
                         </li>
-                        <li><a href="page-sitemap.html">SITEMAP</a></li>
-                        <li><a href="page-blank.html">BLANK PAGE</a></li>
+                        <!-- <li><a href="page-sitemap.html">SITEMAP</a></li> -->
                       </ul>
                     </li>
                   </ul>

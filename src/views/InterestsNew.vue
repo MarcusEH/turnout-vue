@@ -16,8 +16,9 @@
   <p>Special events are... Custom events are...</p> -->
   <section>
         <div class="container">
-
-          <div class="row">
+          <div class="box-light">
+            <div class="box-inner">
+              <div class="row">
             <div class="col-md-6 offset-md-3">
 
               <div class="toggle toggle-transparent toggle-accordion toggle-noicon">
@@ -59,8 +60,8 @@
                           <button class="btn btn-primary" @click="addInterest(newInterestLevel)"><i class="fa fa-check"></i> SUBMIT</button>
 
                         </div>
-                          <p>Special events are are events that may only occur once but are not user created such as a special theme day at a museum.</p>
-                          <p>Custom events are your own events that do not fit in the other categories. Example: a party hosted by a group member at their home.</p>
+                          <p><i class="fa fa-check-circle-o"></i> Special events are are events that may only occur once but are not user created such as a special theme day at a museum.</p>
+                          <p><i class="fa fa-check-circle-o"></i> Custom events are your own events that do not fit in the other categories. Example: a party hosted by a group member at their home.</p>
                       </div>
 
                     </div>
@@ -72,6 +73,8 @@
 
               </div>
 
+            </div>
+              </div>
             </div>
           </div>
 

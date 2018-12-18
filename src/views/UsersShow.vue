@@ -1,30 +1,6 @@
 <template>
   <div class="home">
-<!--     <h1>Profile</h1>
-      <a v-bind:href="'/#/users/edit'" class="btn btn-primary">Edit Profile</a>
-     <a v-bind:href="'/#/groups/create'" class="btn btn-secondary">New Group</a>
-     <a v-bind:href="'/#/groups/join'" class="btn btn-primary">See your invites</a>
-    <div>
-      <p> First Name: {{user.first_name}}</p>
-      <p> Last Name: {{user.last_name}}</p>
-      <p> Email: {{user.email}}</p>
-      
-      <div v-for="group in user.groups">
-        <p> Groups: {{group.title}} </p>
-        <a v-bind:href="'/#/groups/index'" class="btn btn-primary">More</a>
-      </div>
-      <hr>
-      <p> Openings: {{user.openings}} </p>
-      <a v-bind:href="'/#/openings/create'" class="btn btn-primary">Add Opening</a>
-      <hr>
-      <div class="interests">
-        <div v-for="interest in user.interests">
-          <p>Interests: {{interest}}</p>
-          <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" class="btn btn-secondary">Edit Interests</a>
-          <a v-bind:href="'/#/interests/create'" class="btn btn-secondary">Add an Interest</a></p>
-        </div>
-      </div>
-    </div> -->
+
     <section>
         <div class="container">
           <div class="row">
@@ -46,13 +22,13 @@
 
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
-                <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-eye"></i> PROFILE</a></li>
+                <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
-                <li class="list-group-item"><a href="/#/groups/create"><i class="fa fa-comments"></i> CREATE A GROUP</a></li>
-                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-eye"></i>YOUR GROUPS</a></li>
-                <li class="list-group-item"><a href="/#/openings/create"><i class="fa fa-gears"></i>ADD AN OPENING</a></li>
-                <li class="list-group-item"><a href="/#/interests/create"><i class="fa fa-gears"></i>ADD INTERESTS</a></li>
+                <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-magic"></i> CREATE A GROUP</a></li>
+                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-group"></i>YOUR GROUPS</a></li>
+                <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-calendar"></i>ADD AN OPENING</a></li>
+                <li class="list-group-item"><a href="/#/interests/new"><i class="fa fa-smile-o"></i>ADD INTERESTS</a></li>
               </ul>
             </div>
 
@@ -83,7 +59,7 @@
                                <img class="thumbnail float-left" v-bind:src="group.group_image.url" width="60" height="50" alt="" />
                               </div>
                               <div v-else>
-                                <img class="thumbnail float-left" src="assets/images/eggoworld.jpg"width="60" height="60" alt="" />
+                                <img class="thumbnail float-left" src="assets/images/eggoworld.jpg"width="60" height="50" alt="" />
                               </div>
                             <h4 class="fs-13 m-0 b-0 p-0"><a v-bind:href='"/#/groups/" + group.id'>{{group.title}}</a></h4></p>
                             <hr>
@@ -116,7 +92,7 @@
                     <div class="box-inner">
                       <!--broken link (could be calendar)-->
                       <h3>
-                        <a class="float-right fs-11 text-warning" href="/#/openings/create">ADD AN OPENING</a><!--/-->
+                        <a class="float-right fs-11 text-warning" href="/#/openings/new">ADD AN OPENING</a><!--/-->
                         OPENINGS
                       </h3>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">

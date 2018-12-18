@@ -10,7 +10,11 @@
       </div>
     </div>
     <div v-else>
-      <h3>Nothing to see here. What a shame!</h3>
+      <div class="box-light">
+        <h3>Looks like you currently have no pending invitations! What a shame! If you believe this is an error please contact Turnout support or have your a known group member add your correct email to the invite list. Thanks!</h3>
+      </div>
+      <div class="box-footer">
+      </div>
     </div>
     <!-- <a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a> -->
   </div>
@@ -87,7 +91,7 @@ export default {
                     this.error = error.response.data.errors;
                   }); //end of errors for user interests
               });//end of loop
-              this.$router.push('/interests/create');
+              this.$router.push('/interests/new');
             } else {
               this.$router.push('/groups/index');
             } //end of else statement

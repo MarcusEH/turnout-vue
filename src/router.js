@@ -7,14 +7,14 @@ import Logout from './views/Logout.vue';
 import UsersShow from './views/UsersShow.vue';
 import UsersEdit from './views/UsersEdit.vue';
 import InterestsEdit from './views/InterestsEdit.vue';
-import InterestsCreate from './views/InterestsCreate.vue';
-import OpeningsCreate from './views/OpeningsCreate.vue';
+import InterestsNew from './views/InterestsNew.vue';
+import OpeningsNew from './views/OpeningsNew.vue';
 import GroupsIndex from './views/GroupsIndex.vue';
 import GroupsEdit from './views/GroupsEdit.vue';
 import GroupsShow from './views/GroupsShow.vue';
-import GroupsCreate from './views/GroupsCreate.vue';
+import GroupsNew from './views/GroupsNew.vue';
 import GroupsJoin from './views/GroupsJoin.vue';
-import EventsCreate from './views/EventsCreate.vue';
+import EventsNew from './views/EventsNew.vue';
 import UsersCalendar from './views/UsersCalendar.vue';
 import UserGoogleCalendar from './views/UserGoogleCalendar.vue';
 
@@ -68,14 +68,14 @@ export default new Router({
       component: InterestsEdit
     },
     {
-      path: '/interests/create',
-      name: 'interestsCreate',
-      component: InterestsCreate
+      path: '/interests/new',
+      name: 'interestsNew',
+      component: InterestsNew
     },
     {
-      path: '/openings/create',
-      name: 'openingsCreate',
-      component: OpeningsCreate
+      path: '/openings/new',
+      name: 'openingsNew',
+      component: OpeningsNew
     },
     {
       path: '/groups/index',
@@ -83,9 +83,9 @@ export default new Router({
       component: GroupsIndex
     },
     {
-      path: '/groups/create',
-      name: 'groupsCreate',
-      component: GroupsCreate
+      path: '/groups/new',
+      name: 'groupsNew',
+      component: GroupsNew
     },
     {
       path: '/groups/join',
@@ -93,7 +93,7 @@ export default new Router({
       component: GroupsJoin
     },
     {
-      path: '/groups/edit/:id',
+      path: '/groups/:id/edit',
       name: 'groupsEdit',
       component: GroupsEdit
     },
@@ -103,9 +103,9 @@ export default new Router({
       component: GroupsShow
     },
     {
-      path: '/events/create',
-      name: 'eventsCreate',
-      component: EventsCreate
+      path: '/events/new',
+      name: 'eventsNew',
+      component: EventsNew
     },
     {
       path: '/users/calendar',

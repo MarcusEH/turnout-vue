@@ -24,7 +24,7 @@
                   <label class="fs-20"><i class="fa fa-leaf"></i> &nbsp; Let's get started!</label>
                   <div class="toggle-content">
 
-                    <div class="events-create">
+                    <div class="events-new">
                       <form class="sky-form" autocomplete="off" v-on:submit.prevent="submitEvent()">
                         <div class="clearfix">
                           <select id="groupChoice">

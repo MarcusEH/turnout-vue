@@ -191,7 +191,7 @@ export default {
               .catch(error => {
                 console.log('in the patch to group errors');
                 this.errors = error.response.data.errors;
-              })
+              });
             this.$router.push('/groups/' + this.$router.params.id);
           })
           .catch(error => {

@@ -108,7 +108,7 @@ export default {
           if (response.data.interests.length > 0) {
             this.$router.push("/users/show");
           } else {
-            this.$router.push("/groups/create");
+            this.$router.push("/interests/new");
           }
         })
         .catch(error => {
