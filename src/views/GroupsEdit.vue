@@ -61,9 +61,6 @@
                             <p>Image Url:</p>
                             <input type="text" v-model="newImage.image_url"></p>
                           </div>
-
-                          <!-- <a href="/#/users/edit" class="btn btn-danger btn-sm rad-0"><i class="fa fa-times"></i> Remove Avatar</a> -->
-
                           <div class="clearfix mt-20">
                             <span class="badge badge-warning">NOTE! </span>
                             <p>
@@ -95,7 +92,6 @@
                   <img class="img-fluid" src="assets/images/eggoworld.jpg" alt="" />
                 </div>
                 <h2 class="fs-18 mt-10 mb-0">{{group.title}}</h2>
-                <!-- <h3 class="fs-11 mt-0 mb-10 text-muted">DEVELOPER</h3> -->
               </div>
 
 
@@ -158,13 +154,14 @@ export default {
     submitImage: function() {
       if (this.group.group_image) {
         var params = {
-          id: this.group.id,
+          group_id: this.group.id,
           url: this.newImage.image_url
         };
+
         axios 
-          .patch('http://localhost:3000/api/group_images/edit', params).then(response => {
+          .patch('http://localhost:3000/api/group_images/' + this.group.id, params).then(response => {
             console.log('before redirect');
-            this.$router.push('/groups/' + this.$router.params.id);
+            this.$router.push('/groups/index');
           })
           .catch(error => {
             console.log('in the errors');
@@ -184,7 +181,7 @@ export default {
               group_image_id: response.data.id
             };
             axios
-              .patch('http://localhost:3000/api/groups/edit', groupParams).then(response => {
+              .patch('http://localhost:3000/api/groups/' + this.group.id, groupParams).then(response => {
                 console.log('in the patch request for group');
                 console.log(response.data);
               })

@@ -8,8 +8,6 @@
   <hr>
   <button class="btn btn-primary" v-if='authorized' @click="getEvents"><i class="fa fa-calendar"></i>Add your Google events</button>
   <div class="item-container" v-if="authorized && items">
-    <!-- <pre v-html="items"></pre>
-    {{items}} -->
   </div>
   <div class="user_calendar">
       <full-calendar :config="config" :event-sources="eventSources"></full-calendar>
@@ -19,6 +17,7 @@
 <style>
 </style>
 <script>
+// import VueGAPI from 'vue-gapi';
 import { FullCalendar } from 'vue-full-calendar';
 var axios = require('axios');
 var fcEvents = null;
@@ -73,10 +72,12 @@ export default {
       console.log(event);
     }
   },
-  created: function() {
-    gapi.load('auth2', function() { });
-    this.api = gapi;
-    this.handleClientLoad();
+  mounted: function() {
+    setTimeout(function() {
+      gapi.load('auth2', function() { });
+      this.api = gapi;
+      this.handleClientLoad();
+    }.bind(this), 200);
   },
   methods: {
     /**
@@ -111,9 +112,7 @@ export default {
       });
     },
 
-    /**
-     *  Sign in the user upon button click.
-     */
+    // Sign in.
     handleAuthClick(event) {
       Promise.resolve(this.api.auth2.getAuthInstance().signIn())
         .then(_ => {
@@ -121,9 +120,7 @@ export default {
         });
     },
 
-    /**
-     *  Sign out the user upon button click.
-     */
+    // Sign out.
     handleSignoutClick(event) {
       Promise.resolve(this.api.auth2.getAuthInstance().signOut())
         .then(_ => {
@@ -163,12 +160,4 @@ export default {
   },
   computed: {}
 };
-
-
- 
-
- 
-
-
-  
 </script>

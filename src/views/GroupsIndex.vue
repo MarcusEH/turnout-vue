@@ -46,20 +46,24 @@
 
                         <div class="box-dark"><!-- post item -->
                           <div v-for="user in group.users">
-                            <div v-if="user.user_image">
-                                <img class="thumbnail float-left" v-bind:src="user.user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" width="60" height="60"/>
+                            <div v-if="user.user_image_id">
+                                <div v-for="user_image in group.user_images">
+                                  
+                                <img class="thumbnail float-left" v-if="user.id === user_image.user_id" v-bind:src="user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" width="60" height="60"/> 
+                                </div>
                               </div>
                               <div v-else>
                                 <img class="thumbnail float-left" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" width="60" height="40"/>
                               </div>
-                            <!-- <p><img class="thumbnail float-left" src="demo_files/images/people/300x300/6-min.jpg" width="60" height="60" alt="" /> -->
+                            
                             <h4 class="fs-13 m-0 b-0 p-0">
                               NAME: {{user.first_name}} {{user.last_name}}</h4></p>
                             <p><h4 class="fs-13 m-0 b-0 p-0">EMAIL: {{user.email}}</h4></p>
                             <hr>
                           </div>
-                        </div><!-- /post item -->
-                        <!-- <h3><a v-bind:href="'/#/groups/' + group.id" class="float-right fs-11 text-warning">VIEW THIS GROUP</a></h3> -->
+                        </div>
+                        <!-- /post item -->
+                        
                       </div>
                     </div>
 
@@ -74,7 +78,7 @@
                   <div class="col-md-12 col-sm-12">
 
                     <div class="box-inner">
-                      <h3>EVENTS</h3>
+                      <h3>GROUP EVENT</h3>
                       <h5>Category: {{group.group_event_category}}</h5>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
 
@@ -83,8 +87,8 @@
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Location: {{event.location}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment('llll')}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment('llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment("utc", 'llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment("utc", 'llll')}}</h4></p>
                             <!-- <span class="fs-12 text-muted">Lorem ipsum dolor sit amet.</span> -->
                             <hr>
                           </div>
@@ -143,6 +147,7 @@ export default {
     axios.get('http://localhost:3000/api/groups/').then(response => { 
       console.log(response.data);
       this.groups = response.data;
+
     }); 
     // axios.get('http://localhost:3000/api/group_events').then(response => {
     //   console.log(response.data);

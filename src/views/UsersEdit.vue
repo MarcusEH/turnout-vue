@@ -10,8 +10,6 @@
               <ul class="nav nav-tabs nav-top-border">
                 <li class="active"><a href="#info" data-toggle="tab">Personal Info</a></li>
                 <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
-                <!-- <li><a href="#password" data-toggle="tab">Password</a></li> -->
-                <!-- <li><a href="#privacy" data-toggle="tab">Privacy</a></li> -->
               </ul>
 
               <div class="tab-content mt-20">
@@ -81,7 +79,7 @@
                           <div class="clearfix mt-20">
                             <span class="badge badge-warning">NOTE! </span>
                             <p>
-                              Post only images you own!
+                              Please make sure you are entering a valid URL!
                             </p>
                           </div>
 
@@ -100,35 +98,6 @@
 
                 </div>
                 <!-- /AVATAR TAB -->
-
-                <!-- PASSWORD TAB -->
-                <!-- <div class="tab-pane fade" id="password">
-
-                  <form action="#" method="post">
-
-                    <div class="form-group">
-                      <label class="form-control-label">Current Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label">New Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label">Re-type New Password</label>
-                      <input type="password" class="form-control">
-                    </div>
-
-                    <div class="margiv-top10">
-                      <a href="#" class="btn btn-primary"><i class="fa fa-check"></i> Change Password</a>
-                      <a href="#" class="btn btn-default">Cancel </a>
-                    </div>
-
-                  </form>
-
-                </div> -->
-                <!-- /PASSWORD TAB -->
-
                 
               </div>
 
@@ -146,7 +115,6 @@
                     <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" />
                   </div>
                 <h2 class="fs-18 mt-10 mb-0">{{user.first_name}} {{user.last_name}}</h2>
-                <!-- <h3 class="fs-11 mt-0 mb-10 text-muted">DEVELOPER</h3> -->
               </div>
 
 
@@ -196,8 +164,6 @@ export default {
         last_name: this.user.last_name,
         email: this.user.email,
         // image_url: this.user.imageUrl
-        // password: this.user.password,
-        // password_confirmation: this.user.password_confirmation,
       };
       axios
         .patch('http://localhost:3000/api/users/edit', params).then(response => {
@@ -211,10 +177,7 @@ export default {
       if (this.user.user_image) {
         var params = {
           url: this.newImage.image_url
-        };
-      
-        // image_file: document.getElementById("file").value
-      
+        };      
         axios
           .patch('http://localhost:3000/api/user_images/edit', params).then(response => {
             console.log('before redirect');
@@ -243,7 +206,7 @@ export default {
               .catch(error => {
                 console.log('in the patch to users errors');
                 this.errors = error.response.data.errors;
-              })
+              });
             this.$router.push('/users/show');
           })
           .catch(error => {

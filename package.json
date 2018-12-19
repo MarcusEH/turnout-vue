@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "googleapis": "^27.0.0",
+    "moment-timezone": "^0.5.23",
     "vue": "^2.5.17",
     "vue-full-calendar": "^2.7.0",
     "vue-gapi": "0.0.10",

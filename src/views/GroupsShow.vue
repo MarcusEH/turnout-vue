@@ -26,14 +26,13 @@
               <!-- SIDE NAV-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
                 <h3>Your links</h3>
-                <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-eye"></i> PROFILE</a></li>
+                <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
-                <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-comments"></i> CREATE A GROUP</a></li>
-                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-eye"></i>YOUR GROUPS</a></li>
-                <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-gears"></i>ADD AN OPENING</a></li>
-                <li class="list-group-item"><a href="/#/interests/new"><i class="fa fa-gears"></i>ADD INTERESTS</a></li>
-                <li class="list-group-item"><a href="/#/interests/edit"><i class="fa fa-gears"></i>EDIT INTERESTS</a></li>
+                <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-magic"></i> CREATE A GROUP</a></li>
+                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-group"></i>YOUR GROUPS</a></li>
+                <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-calendar"></i>ADD AN OPENING</a></li>
+                <li class="list-group-item"><a href="/#/interests/new"><i class="fa fa-smile-o"></i>ADD INTERESTS</a></li>
               </ul>
               <!-- /SIDE NAV -->
 
@@ -57,12 +56,15 @@
                       </h3>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
                       
-
                         <div class="box-dark"><!-- post item -->
                           <div v-for="user in group.users">
-                            <!-- <p><img class="thumbnail float-left" v-bind:src="user.user_image.url" width="60" height="60" alt="" /> -->
-                              <div v-if="user.user_image">
-                                <img class="thumbnail float-left" v-bind:src="user.user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" width="60" height="60"/>
+                            
+
+                              <div v-if="user.user_image_id">
+                                <div v-for="user_image in group.user_images">
+                                  
+                                <img class="thumbnail float-left" v-if="user.id === user_image.user_id" v-bind:src="user_image.url" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" width="60" height="60"/> 
+                                </div>
                               </div>
                               <div v-else>
                                 <img class="thumbnail float-left" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUWK74VLFjbzPXDTEwI6MFhmZiQJY42s2I1u0yK6XzEi1Ket-s_g" alt="" width="60" height="60"/>
@@ -73,22 +75,12 @@
                           </div>
                         </div><!-- /post item -->
                       </div>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" v-on:click="setCurrentGroup(group)">Invite New Members</button> 
+                      <p></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" v-on:click="setCurrentGroup(group)">Invite New Members</button>&nbsp&nbsp
                       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#MailModal" v-on:click="setCurrentGroup(group)">Email Group Members</button>
                     </div>
 
                     <div class="box-dark">
-                      <!-- INLINE SEARCH -->
-                      <!-- <div class="inline-search clearfix">
-                        <form action="#" method="get" class="widget_search m-0">
-                          <input type="search" placeholder="Search Post..." name="s" class="serch-input">
-                          <button type="submit">
-                            <i class="fa fa-search"></i>
-                          </button>
-                          <div class="clear"></div>
-                        </form>
-                      </div> -->
-                      <!-- /INLINE SEARCH -->
+                    
 
                     </div>
 
@@ -99,9 +91,9 @@
                   <div class="col-md-12 col-sm-12">
 
                     <div class="box-inner">
-                      <h3>EVENTS
+                      <h3>GROUP EVENT
                       <a v-bind:href="'/#/events/new'" class="float-right fs-11 text-warning">Create an Event</a></h3>
-                      <h5>CATEGORY: {{group.group_event_category}}</h5>
+                      <h5>Category: {{group.group_event_category}}</h5>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
 
                         <div class="box-dark"><!-- squared item -->
@@ -109,18 +101,15 @@
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Location: {{event.location}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment('llll')}}</h4></p>
-                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment('llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment("utc", 'llll')}}</h4></p>
+                            <p><h4 class="fs-14 m-0 b-0 p-0 bold"> End time: {{event.end_time | moment("utc", 'llll')}}</h4></p>
                             
                             <hr>
                           </div>
                         </div>
                         <!-- /squared item -->
-
                       </div>
-                    </div>                  
-
-                    
+                    </div>                                    
                   </div>
                 </div>
               </div>
@@ -131,15 +120,19 @@
       <!--fix the background for comments-->
       <h4>Comments: </h4>
       <div class="box-light">
-        
         <div class="form-group">
-          <div v-for="comment in comments">
-            <ul>
-              <li>{{comment.comment_text}} by {{comment.user.first_name}}</li><!--fix this-->
-            </ul>
+          <div class="box-inner">
+          <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
+            <div v-for="comment in comments">
+              <ul>
+                <li>{{comment.comment_text}} by {{comment.user.first_name}} on {{comment.created_at | moment("utc", 'llll')}}</li><!--fix this-->
+              </ul>
+            </div>
           </div>
+        </div>
           <label for="comment">Add a Comment:</label>
           <textarea class="form-control" rows="5" id="comment"></textarea>
+          <br>
           <button class="btn btn-primary" @click="submitComment()">Submit</button>
         </div>
       </div>

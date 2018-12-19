@@ -69,17 +69,6 @@
                     </div>
 
                     <div class="box-footer">
-                      <!-- INLINE SEARCH -->
-                      <!-- <div class="inline-search clearfix">
-                        <form action="#" method="get" class="widget_search m-0">
-                          <input type="search" placeholder="Search Post..." name="s" class="serch-input">
-                          <button type="submit">
-                            <i class="fa fa-search"></i>
-                          </button>
-                          <div class="clear"></div>
-                        </form>
-                      </div> -->
-                      <!-- /INLINE SEARCH -->
 
                     </div>
 
@@ -102,8 +91,8 @@
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
                             <ol>
                               <li>
-                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> START: {{opening.begin_time | moment('llll')}}</h4></p>
-                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> END: {{opening.end_time | moment('llll')}}</h4></p></li>
+                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> START: {{opening.begin_time | moment("utc", "llll")}}</h4></p>
+                                <p><h4 class="fs-14 m-0 b-0 p-0 bold"> END: {{opening.end_time | moment("utc", "llll")}}</h4></p></li>
                             </ol>
                             <!-- <span class="fs-12 text-muted">Lorem ipsum dolor sit amet.</span> -->
                             <hr>
@@ -204,6 +193,8 @@
 
 <script>
 var axios = require('axios');
+// import moment from 'moment-timezone';
+
 export default {
   data: function() {
     return {

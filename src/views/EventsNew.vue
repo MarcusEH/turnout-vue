@@ -1,17 +1,4 @@
-<template>
-  <!-- <div class="events-create">
-    <h1>{{ message }}</h1>
-      <select id="groupChoice">
-        <option v-for="group in groups" v-bind:value="group.id">
-          {{group.title}}
-        </option>
-      </select>
-      <p> Location: <input type="text" v-model="newEvent.location"></p>
-      <p> Event Name: <input type="text" v-model="newEvent.eventName"></p>
-      <p><button @click="submitEvent()">Create Event</button></p>
-    
-  </div> -->
-    
+<template>  
   <section>
         <div class="container">
 
@@ -25,7 +12,7 @@
                   <div class="toggle-content">
 
                     <div class="events-new">
-                      <form class="sky-form" autocomplete="off" v-on:submit.prevent="submitEvent()">
+                      <form class="sky-form" v-on:submit.prevent="submit()">
                         <div class="clearfix">
                           <select id="groupChoice">
                             <option v-for="group in groups" v-bind:value="group.id">
@@ -65,7 +52,7 @@
 
                           <div class="col-md-6 col-sm-6 col-6 text-right">
 
-                            <button class="btn btn-primary" @click="submitEvent()"><i class="fa fa-check"></i> SUBMIT</button>
+                            <button class="btn btn-primary" type="submit" value="submit"><i class="fa fa-check"></i> SUBMIT</button>
 
                           </div>
 
@@ -109,7 +96,7 @@ export default {
     });
   },
   methods: {
-    submitEvent: function() {
+    submit: function() {
       var params = {
         group_id: document.getElementById("groupChoice").value,
         location: this.newEvent.location,
@@ -119,7 +106,7 @@ export default {
       axios
         .post('http://localhost:3000/api/group_events', params).then(response => {
           console.log(response.data);
-          this.$router.push('/users/show');
+          this.$router.push('/groups/index');
         })
         .catch(error => {
           console.log("event create errors");

@@ -58,6 +58,7 @@
                         <div class="col-md-6 col-sm-6 col-6 text-right">
 
                           <button class="btn btn-primary" @click="addInterest(newInterestLevel)"><i class="fa fa-check"></i> SUBMIT</button>
+                          <p><a class="btn btn-secondary" href="/#/users/show"><i class="fa fa-child"></i>&nbspPROFILE</a></p>
 
                         </div>
                           <p><i class="fa fa-check-circle-o"></i> Special events are are events that may only occur once but are not user created such as a special theme day at a museum.</p>
