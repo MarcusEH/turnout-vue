@@ -1,13 +1,4 @@
 <template>
- <!--  <div class="groups-create">
-    <div class="container">
-      <h1>{{ message }}</h1>
-      <p>Name of your group:<input type="text" v-model="newGroup.title"></p>
-      <p>Type of event:(optional) <input type="text" v-model="newGroup.event_type"></p>
-      <p><button class="btn btn-primary" @click="submitGroup()">Create Group</button>
-      <a v-bind:href="'/#/groups/join'" class="btn btn-secondary">Join a Group</a></p>
-    </div>
-  </div> -->
   <section>
     <div class="container">
 

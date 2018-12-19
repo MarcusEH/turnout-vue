@@ -205,7 +205,7 @@ export default {
     };
   },
   created: function() {
-    axios.get('http://localhost:3000/api/users/show').then(function(response) {
+    axios.get('http://localhost:3000/api/users/' + this.user.id).then(function(response) {
       console.log(response.data);
       this.user = response.data;
     }.bind(this));

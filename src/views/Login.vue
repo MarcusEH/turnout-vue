@@ -47,7 +47,7 @@
 
                 <div >
                   <ul>
-                    <li class="alert alert-mini alert-danger mb-30" v-for="error in errors">{{ error }}</li>
+                    <li class="text-danger" v-for="error in errors">{{ error }}</li>
                   </ul>
                 </div>
 

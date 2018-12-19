@@ -4,13 +4,36 @@
     <h2>Your Turnout Events with Google Calendar</h2>
     <button class="btn btn-primary" v-if='!authorized' @click="handleAuthClick"><i class="fa fa-google"></i>Sign In to Google</button>
     <button class="btn btn-primary" v-if='authorized' @click="handleSignoutClick">Sign Out</button>
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#legendModal">LEGEND</button>
   </div>
   <hr>
   <button class="btn btn-primary" v-if='authorized' @click="getEvents"><i class="fa fa-calendar"></i>Add your Google events</button>
   <div class="item-container" v-if="authorized && items">
   </div>
   <div class="user_calendar">
-      <full-calendar :config="config" :event-sources="eventSources"></full-calendar>
+    <full-calendar :config="config" :event-sources="eventSources"></full-calendar>
+       <!--LEGEND modal-->
+    <div class="modal fade" id="legendModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">CALENDAR LEGEND</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>TODAY'S DATE: Yellow</p>
+                <p>TURNOUT EVENTS: Green</p>
+                <p>GOOGLE EVENTS: Gray</p>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--/LEGEND modal-->
   </div>
 </div>
 </template>
@@ -80,9 +103,7 @@ export default {
     }.bind(this), 200);
   },
   methods: {
-    /**
-     *  On load, called to load the auth2 library and API client library.
-     */
+    //On load, load the auth2 library and API client library.
     handleClientLoad() {
       this.api.load('client:auth2', this.initClient);
     },
@@ -112,7 +133,7 @@ export default {
       });
     },
 
-    // Sign in.
+    // Signin
     handleAuthClick(event) {
       Promise.resolve(this.api.auth2.getAuthInstance().signIn())
         .then(_ => {
@@ -129,10 +150,7 @@ export default {
       console.log('after clicking to authorize');
     },
 
-    /**
-     * Print the summary and start datetime/date of the next ten events in
-     * the authorized user's calendar. 
-     */
+    //get ten events from user's google calendar
     getEvents() {
       var vm = this;
       vm.api.client.calendar.events.list({

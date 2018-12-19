@@ -10,6 +10,7 @@
           <div class="row">
 
             <!-- LEFT -->
+            
             <div class="col-lg-3 col-md-3 col-sm-4">
             <!-- profile picture and name-->
               <div class="thumbnail text-center">

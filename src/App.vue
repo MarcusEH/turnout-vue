@@ -18,24 +18,9 @@
 
             <!-- BUTTONS -->
             <ul class="float-right nav nav-pills nav-second-main">
-
-              <!-- SEARCH -->
-              <li class="search">
-                <a href="javascript:;">
-                  <i class="fa fa-search"></i>
-                </a>
-                <div class="search-box">
-                  <form action="page-search-result-1.html" method="get">
-                    <div class="input-group">
-                      <input type="text" name="src" placeholder="Search" class="form-control" />
-                      <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit">Search</button>
-                      </span>
-                    </div>
-                  </form>
-                </div> 
-              </li>
-              <!-- /SEARCH -->
+              <div>
+                <span>{{ new Date() | moment("dddd, MMMM Do YYYY") }}</span>
+              </div>
 
             </ul>
             <!-- /BUTTONS -->
@@ -44,6 +29,7 @@
             <a class="logo float-left" href="/">
               <img src="assets/images/demo-t.png" alt="" />
             </a>
+
 
             <!-- 
               Top Nav 
@@ -107,30 +93,7 @@
                       </ul>
                     </li>
                   </ul>
-                </li>
-                  
-                  
-                  
-                  
-
-
-
-                  <!-- 
-                    MENU ANIMATIONS
-                      .nav-animate-fadeIn
-                      .nav-animate-fadeInUp
-                      .nav-animate-bounceIn
-                      .nav-animate-bounceInUp
-                      .nav-animate-flipInX
-                      .nav-animate-flipInY
-                      .nav-animate-zoomIn
-                      .nav-animate-slideInUp
-
-                      .nav-hover-animate    = animate text on hover
-
-                      .hover-animate-bounceIn = bounceIn effect on mouse over of main menu
-                  -->
-                
+                                 
                 </ul>
 
               </nav>
@@ -153,7 +116,7 @@
               <img class="footer-logo" src="demo_files/images/demo-t.png" alt="" />
 
               <!-- Small Description -->
-              <p>Turnout by Marcus Hamill.</p>
+              <p>Turnout by <br> Marcus Hamill.</p>
 
               <!-- Contact Address -->
               <address>
@@ -177,40 +140,11 @@
 
             <div class="col-md-3">
 
-              <!-- Latest Blog Post -->
-          <!--    <h4 class="letter-spacing-1">LATEST NEWS</h4>
-              <ul class="footer-posts list-unstyled">
-                <li>
-                  <a href="#">Donec sed odio dui. Nulla vitae elit libero, a pharetra augue</a>
-                  <small>29 June 2017</small>
-                </li>
-                <li>
-                  <a href="#">Nullam id dolor id nibh ultricies</a>
-                  <small>29 June 2017</small>
-                </li>
-                <li>
-                  <a href="#">Duis mollis, est non commodo luctus</a>
-                  <small>29 June 2017</small>
-                </li>
-              </ul> -->
-              <!-- /Latest Blog Post -->
-
             </div>
 
             <div class="col-md-2">
 
-              <!-- Links -->
-            <!--  <h4 class="letter-spacing-1">EXPLORE SMARTY</h4>
-              <ul class="footer-links list-unstyled">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Our Clients</a></li>
-                <li><a href="#">Our Pricing</a></li>
-                <li><a href="#">Smarty Tour</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul> -->
-              <!-- /Links -->
+            
 
             </div>
 
@@ -222,25 +156,15 @@
               <div class="mt-20">
                 
 
-                <a href="#" class="social-icon social-icon-border social-twitter float-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+                <a href="https://twitter.com/Turnoutappuser" class="social-icon social-icon-border social-twitter float-left" data-toggle="tooltip" data-placement="top" title="Twitter">
                   <i class="icon-twitter"></i>
                   <i class="icon-twitter"></i>
                 </a>
-
-               <!--  <a href="#" class="social-icon social-icon-border social-gplus float-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-                  <i class="icon-gplus"></i>
-                  <i class="icon-gplus"></i>
-                </a> -->
 
                 <a href="https://www.linkedin.com/in/marcus-hamill/" class="social-icon social-icon-border social-linkedin float-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
                   <i class="icon-linkedin"></i>
                   <i class="icon-linkedin"></i>
                 </a>
-
-                <!-- <a href="#" class="social-icon social-icon-border social-rss float-left" data-toggle="tooltip" data-placement="top" title="Rss">
-                  <i class="icon-rss"></i>
-                  <i class="icon-rss"></i>
-                </a> -->
           
               </div>
               <!-- /Social Icons -->
@@ -407,9 +331,6 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <!-- <button type="button" class="btn btn-primary" id="terms-agree"><i class="fa fa-check"></i> I Agree</button> -->
-              
-              <!-- <a href="page-print-terms.html" target="_blank" rel="nofollow" class="btn btn-danger float-left"><i class="fa fa-print"></i><span class="hidden-xs-down"> Print</span></a> -->
             </div>
 
           </div> <!-- /.modal-content -->
@@ -424,5 +345,16 @@
 
 </style>
 <script>
-
+var axios = require('axios');
+export default {
+  data: function() {
+    return {
+  
+    };
+  },
+  created: function() {},
+  mounted: function() {},
+  methods: {},
+  computed: {}
+};
 </script>

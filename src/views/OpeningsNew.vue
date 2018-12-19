@@ -1,11 +1,19 @@
 <template>
   <div class="opening-create">
     <div class="container">
-
-    <h1>Create an Opening</h1>
-    <p>Start of availability: <input type="datetime-local" v-model="opening.begin_time"></p>
-    <p>End of Availability: <input type="datetime-local" v-model="opening.end_time"></p>
-    <p><button class="btn btn-primary" @click="submitOpening()">Submit</button> </p>
+      <div class="box-light">
+        <div class="box-inner">
+          <br>
+          <h1>Create an Opening</h1>
+          <br>
+          <p>Start of availability: <input type="datetime-local" v-model="opening.begin_time"></p>
+          <p>End of Availability: <input type="datetime-local" v-model="opening.end_time"></p>
+          <p><button class="btn btn-primary" @click="submitOpening()">SUBMIT</button><a class="btn btn-secondary" v-bind:href="'/#/users/show'">CANCEL</a> </p>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
   </div>
 </template>

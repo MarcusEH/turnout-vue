@@ -27,7 +27,7 @@
                     </div>                    
                     <div class="margiv-top10">
                       <button @click="submit()" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
-                      <a href="#/user/show" class="btn btn-default">Cancel </a>
+                      <a v-bind:href="'/#/groups/' + group.id" class="btn btn-default">Cancel </a>
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="margiv-top10">
                       <button @click="submitImage()" class="btn btn-primary">Save Changes </button>
-                      <a href="/#/users/show" class="btn btn-default">Cancel </a>
+                      <a v-bind:href="'/#/groups/' + group.id" class="btn btn-default">Cancel </a>
                     </div>
                   </div>
                 </div>
@@ -144,8 +144,8 @@ export default {
       };
       console.log(params);
       axios
-        .patch('http://localhost:3000/api/groups/edit', params).then(response => {
-          this.$router.push('/groups/' + this.$router.params.id);
+        .patch('http://localhost:3000/api/groups/' + this.group.id, params).then(response => {
+          this.$router.push('/groups/' + this.group.id);
         })
         .catch(error => {
           this.errors = error.response.data.errors;
@@ -161,7 +161,7 @@ export default {
         axios 
           .patch('http://localhost:3000/api/group_images/' + this.group.id, params).then(response => {
             console.log('before redirect');
-            this.$router.push('/groups/index');
+            this.$router.push('/groups/' + this.group.id);
           })
           .catch(error => {
             console.log('in the errors');

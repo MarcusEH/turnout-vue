@@ -1,6 +1,30 @@
 <template>
   <div class="user_calendar">
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#legendModal">LEGEND</button>
+    <hr>
     <full-calendar :config="config" :event-sources="eventSources"></full-calendar>
+  
+  <!--LEGEND modal-->
+  <div class="modal fade" id="legendModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">CALENDAR LEGEND</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>TODAY'S DATE: Yellow</p>
+              <p>TURNOUT EVENTS: Green</p>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--/LEGEND modal-->
   </div>
 </template>
 
@@ -26,7 +50,7 @@ export default {
               callback(response.data);
             });
           },
-          color: 'gray',
+          color: 'green',
           textColor: 'white',
         }
       ],

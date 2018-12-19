@@ -16,7 +16,7 @@
             <ul class="list-unstyled">
               <li><b>Address:</b> Chicagoland, IL</li>
               <li><b>Phone:</b> 1-555-555-5555</li>
-              <li><b>Email:</b> <a href="mailto:marcusehamill@gmail.com">support</a></li>
+              <li><b>Email: <a href="mailto:marcusehamill@gmail.com">support</a></b></li>
             </ul>
           </div>
 

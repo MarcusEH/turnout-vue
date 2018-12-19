@@ -2,12 +2,14 @@
   <div class="interests-edit">
     <div class="container">
       <h1>{{message}} </h1>
+      <div class="box-dark">
         <a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a>
         <p>Category: {{interest.category}}</p>
         <p>Level of Interest: {{interest.interest_level}} </p>
         <p>Category: {{interest.category}}</p> <!--make this drop down-->
         <p>Level of Interest: <input type="number" v-model="interest.interest_level"> </p>
-      <p><button @click="submitInterestEdit()">Submit Changes</button> </p>
+        <p><button class="btn btn-secondary" @click="submitInterestEdit()">Submit Changes</button> </p>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +43,7 @@ export default {
         interest_level: this.interest.interest_level
       };
       axios
-        .patch("http://localhost:3000/api/user_interests/" + this.$route.params.id + '/edit', params).then(response => {
+        .patch("http://localhost:3000/api/user_interests/" + this.$route.params.id, params).then(response => {
           this.$router.push('/users/show');
         })
         .catch(error => {

@@ -8,7 +8,7 @@
 
             <!-- LEFT -->
             <div class="col-lg-3 col-md-3 col-sm-4">
-            <!-- profile picture and name-->
+            <!-- GROUP AVATAR AND NAME-->
               <div class="thumbnail text-center">
                 <div v-if="group.group_image">
                   <img class="img-fluid" v-bind:src="group.group_image.url" alt="public/assets/images/eggoworld.jpg" />
@@ -19,9 +19,17 @@
                 <h2 class="fs-18 mt-10 mb-0">{{group.title}}</h2>
                 <h3 class="fs-11 mt-0 mb-10 text-muted">{{group.event_type}}</h3>
               </div>
+
+              <!--/GROUP AVATAR AND NAME-->
+
+              <!--SIDE NAV FOR GROUP-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
-                <li class="list-group-item"><a v-bind:href="'/#/groups/' + group.id + '/edit'">Edit Group</a></li>
+                <li class="list-group-item"><a v-bind:href="'/#/groups/' + group.id + '/edit'"><i class="fa fa-group"></i>EDIT GROUP</a></li>
+                <li class="list-group-item"><a data-toggle="modal" data-target="#MailModal" v-on:click="setCurrentGroup(group)"><i class="fa fa-envelope"></i>EMAIL GROUP</a></li>
+                <li class="list-group-item"><a data-toggle="modal" data-target="#Modal" v-on:click="setCurrentGroup(group)"><i class="fa fa-address-card-o"></i>INVITE MEMBERS</a></li>
               </ul>
+              
+              <!--/SIDE NAV FOR GROUP-->
 
               <!-- SIDE NAV-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
@@ -34,10 +42,9 @@
                 <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-calendar"></i>ADD AN OPENING</a></li>
                 <li class="list-group-item"><a href="/#/interests/new"><i class="fa fa-smile-o"></i>ADD INTERESTS</a></li>
               </ul>
+
               <!-- /SIDE NAV -->
-
             </div>
-
 
             <!-- RIGHT -->
             <div class="col-lg-9 col-md-9 col-sm-8">
@@ -51,9 +58,7 @@
                   <div class="col-md-12 col-sm-12">
 
                     <div class="box-inner">
-                      <h3>
-                        MEMBERS
-                      </h3>
+                      <h3>MEMBERS</h3>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
                       
                         <div class="box-dark"><!-- post item -->
@@ -73,7 +78,9 @@
                             <p><h4 class="fs-13 m-0 b-0 p-0">EMAIL: {{user.email}}</h4></p>
                             <hr>
                           </div>
-                        </div><!-- /post item -->
+                        </div>
+
+                        <!-- /post item -->
                       </div>
                       <p></p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" v-on:click="setCurrentGroup(group)">Invite New Members</button>&nbsp&nbsp
                       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#MailModal" v-on:click="setCurrentGroup(group)">Email Group Members</button>
@@ -85,6 +92,7 @@
                     </div>
 
                   </div>
+
                   <!-- /MEMBERS -->
 
                   <!-- EVENTS (changed box from 6 to 12) -->
@@ -93,12 +101,11 @@
                     <div class="box-inner">
                       <h3>GROUP EVENT
                       <a v-bind:href="'/#/events/new'" class="float-right fs-11 text-warning">Create an Event</a></h3>
-                      <h5>Category: {{group.group_event_category}}</h5>
+                      
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
-
                         <div class="box-dark"><!-- squared item -->
+                          <h5>Category: {{group.group_event_category}}</h5>
                           <div v-for="event in group.group_event">
-                            <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Location: {{event.location}}</h4></p>
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Start time: {{event.begin_time | moment("utc", 'llll')}}</h4></p>
@@ -107,9 +114,10 @@
                             <hr>
                           </div>
                         </div>
+
                         <!-- /squared item -->
                       </div>
-                    </div>                                    
+                    </div>                         
                   </div>
                 </div>
               </div>
@@ -117,7 +125,8 @@
           </div>          
         </div>
       </section> 
-      <!--fix the background for comments-->
+
+      <!--COMMENTS-->
       <h4>Comments: </h4>
       <div class="box-light">
         <div class="form-group">
@@ -125,7 +134,7 @@
           <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
             <div v-for="comment in comments">
               <ul>
-                <li>{{comment.comment_text}} by {{comment.user.first_name}} on {{comment.created_at | moment("utc", 'llll')}}</li><!--fix this-->
+                <li>{{comment.comment_text}} by {{comment.user.first_name}} on {{comment.created_at | moment("utc", 'llll')}}</li>
               </ul>
             </div>
           </div>
@@ -137,6 +146,9 @@
         </div>
       </div>
       
+      <!--/COMMENTS-->
+
+      <!--MODAL FOR MAIL to GROUP-->
       <div class="modal fade" id="MailModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -157,7 +169,10 @@
           </div>
         </div>
       </div>
+
+      <!--/MODAL FOR MAIL to GROUP-->
     
+      <!--MODAL FOR INVITE MEMBERS-->
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -178,6 +193,8 @@
           </div>
         </div>
       </div>
+
+      <!--/MODAL FOR INVITE MEMBERS-->
     </div>
   </div>
 </template>
@@ -212,18 +229,10 @@ export default {
       this.comments = response.data;
       console.log(this.$route.params.id);
     });
-    axios.get('http://localhost:3000/api/users/show').then(response => {
+    axios.get('http://localhost:3000/api/users/' + this.user.id).then(response => {
       console.log(response.data);
       this.user = response.data;
     });
-    // var userParams = {
-    //   id: this.$route.params.id
-    // };
-    // axios.get('http://localhost:3000/api/users', userParams).then(response => {
-    //   console.log('in the user index request');
-    //   console.log(response.data);
-    //   this.users = response.data;
-    // });
   },
   methods: {
     submitComment: function() {

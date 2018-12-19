@@ -10,11 +10,7 @@
             <div class="col-md-6 col-sm-6">
 
               <!-- ALERT -->
-              <!--
-              <div class="alert alert-mini alert-danger mb-30">
-                <strong>Oh snap!</strong> Login Incorrect!
-              </div>
-              -->
+              
               <!-- /ALERT -->
 
               <!-- register form -->
@@ -59,13 +55,19 @@
                     <button type="submit" class="btn btn-primary" value="Submit"><i class="fa fa-check"></i> REGISTER</button>
                   </div>
                 </div>
+
+                <!--ALERT-->
                 <ul>
                   <li class="text-danger" v-for="error in errors">{{ error }}</li>
                 </ul>
+                <!--/ALERT-->
+
               </form>
+
               <!-- /register form -->
 
             </div>
+
             <!-- /LOGIN -->
 
             <!-- SOCIAL LOGIN -->
@@ -175,6 +177,7 @@ export default {
         })
         .catch(error => {
           this.errors = error.response.data.errors;
+          console.log(this.errors);
         });
     }
   }

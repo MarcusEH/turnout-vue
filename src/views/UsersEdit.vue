@@ -121,12 +121,12 @@
             
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
-                <li class="list-group-item "><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
-                <li class="list-group-item active"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
+               <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
+                <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
-                <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-comments"></i> CREATE A GROUP</a></li>
-                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-eye"></i>YOUR GROUPS</a></li>
-                <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-gears"></i>ADD AN OPENING</a></li>
+                <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-magic"></i> CREATE A GROUP</a></li>
+                <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-group"></i>YOUR GROUPS</a></li>
+                <li class="list-group-item"><a href="/#/openings/new"><i class="fa fa-calendar"></i>ADD AN OPENING</a></li>
                 <li class="list-group-item"><a href="/#/interests/new"><i class="fa fa-smile-o"></i>ADD INTERESTS</a></li>
               </ul>
               <!-- /SIDE NAV -->
@@ -152,7 +152,7 @@ export default {
     };
   },
   created: function() {
-    axios.get('http://localhost:3000/api/users/show').then(response => {
+    axios.get('http://localhost:3000/api/users/' + this.user.id).then(response => {
       console.log(response.data);
       this.user = response.data;
     });
@@ -162,11 +162,10 @@ export default {
       var params = {
         first_name: this.user.first_name,
         last_name: this.user.last_name,
-        email: this.user.email,
-        // image_url: this.user.imageUrl
+        email: this.user.email
       };
       axios
-        .patch('http://localhost:3000/api/users/edit', params).then(response => {
+        .patch('http://localhost:3000/api/users/' + this.user.id, params).then(response => {
           this.$router.push('/users/show');
         })
         .catch(error => {
@@ -179,7 +178,7 @@ export default {
           url: this.newImage.image_url
         };      
         axios
-          .patch('http://localhost:3000/api/user_images/edit', params).then(response => {
+          .patch('http://localhost:3000/api/user_images/' + this.user.user_image_id, params).then(response => {
             console.log('before redirect');
             this.$router.push('/users/show');
           })
@@ -199,7 +198,7 @@ export default {
               user_image_id: response.data.id
             };
             axios
-              .patch('http://localhost:3000/api/users/edit', userParams).then(response => {
+              .patch('http://localhost:3000/api/users/' + this.user.id, userParams).then(response => {
                 console.log('in the patch request for users');
                 console.log(response.data);
               })
