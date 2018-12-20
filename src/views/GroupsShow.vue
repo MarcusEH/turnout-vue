@@ -134,7 +134,7 @@
           <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
             <div v-for="comment in comments">
               <ul>
-                <li>{{comment.comment_text}} by {{comment.user.first_name}} on {{comment.created_at | moment("utc", 'llll')}}</li>
+                <li>{{comment.comment_text}} by {{comment.user.first_name}} on {{comment.created_at | moment('llll')}}</li>
               </ul>
             </div>
           </div>
@@ -229,7 +229,7 @@ export default {
       this.comments = response.data;
       console.log(this.$route.params.id);
     });
-    axios.get('http://localhost:3000/api/users/' + this.user.id).then(response => {
+    axios.get('http://localhost:3000/api/users/show').then(response => {
       console.log(response.data);
       this.user = response.data;
     });
@@ -254,7 +254,7 @@ export default {
     submitInvite: function() {
       var params = {
         email: this.newInvite,
-        group_id: this.$route.params.id
+        group_id: this.group.id
       };
       axios.post('http://localhost:3000/api/invites', params).then(response => {
         this.invites.push(response.data);
@@ -264,6 +264,7 @@ export default {
     submitEmail: function() {
       var newEmail = document.getElementById("emailText").value;
       console.log(document.getElementById("emailText").value);
+      console.log(this.user);
       var sender = this.user.first_name;
       var params = {
         id: this.$route.params.id,

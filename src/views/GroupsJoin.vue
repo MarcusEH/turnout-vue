@@ -2,8 +2,9 @@
   <div class="groups-join">
     <h1>{{ message }}</h1>
     <div v-if="invites.length > 0">
+      <h3>Your invites:</h3>
       <div v-for="invite in invites">
-        <h3>Your invites:</h3>
+        
         <p>Group Name: {{invite.group.title}}</p>
         <!-- <p>{{invite.group.id}} </p> -->
         <p><button class="btn btn-primary" @click="joinGroup(invite)">Join this Group</button></ins></p>
@@ -40,7 +41,7 @@ export default {
     };
     axios.get('http://localhost:3000/api/invites', params).then(response => {
       console.log(response.data);
-      this.invites = response.data;  
+      this.invites = response.data; 
       // var keys = [];
       // var values = [];
       // for (var i = this.invites.length - 1; i >= 0; i--) {

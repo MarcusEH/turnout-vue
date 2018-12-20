@@ -32,7 +32,7 @@
                     
                     <div class="margiv-top10">
                       <button @click="submit()" class="btn btn-primary"><i class="fa fa-check"></i> Save Changes </button>
-                      <a href="#/user/show" class="btn btn-default">Cancel </a>
+                      <a href="#/users/show" class="btn btn-default">Cancel </a>
                     </div>
                   </div>
                 </div>
@@ -121,8 +121,8 @@
             
               <!-- SIDE NAV  USE THIS-->
               <ul class="side-nav list-group mb-60" id="sidebar-nav">
-               <li class="list-group-item active"><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
-                <li class="list-group-item"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
+               <li class="list-group-item"><a href="/#/users/show"><i class="fa fa-child"></i> PROFILE</a></li>
+                <li class="list-group-item active"><a href="/#/users/edit"><i class="fa fa-tasks"></i> EDIT PROFILE</a></li>
                 <li class="list-group-item"><a href="/#/groups/join"><i class="fa fa-comments-o"></i>SEE YOUR INVITES</a></li>
                 <li class="list-group-item"><a href="/#/groups/new"><i class="fa fa-magic"></i> CREATE A GROUP</a></li>
                 <li class="list-group-item"><a href="/#/groups/index"><i class="fa fa-group"></i>YOUR GROUPS</a></li>
@@ -152,7 +152,7 @@ export default {
     };
   },
   created: function() {
-    axios.get('http://localhost:3000/api/users/' + this.user.id).then(response => {
+    axios.get('http://localhost:3000/api/users/show').then(response => {
       console.log(response.data);
       this.user = response.data;
     });
