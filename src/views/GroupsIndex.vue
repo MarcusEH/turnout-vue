@@ -80,10 +80,11 @@
 
                     <div class="box-inner">
                       <h3>GROUP EVENT</h3>
+                      <div class="box-dark">
                       <h5>Category: {{group.group_event_category}}</h5>
-                      <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
+                        <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
 
-                        <div class="box-dark"><!-- squared item -->
+                        <!-- squared item -->
                           <div v-for="event in group.group_event">
                             <!-- <img class="thumbnail float-left" src="demo_files/images/people/300x300/1-min.jpg" width="40" height="40" alt="" /> -->
                             <p><h4 class="fs-14 m-0 b-0 p-0 bold"> Name: {{event.event_name}}</h4></p>

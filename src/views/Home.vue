@@ -367,10 +367,10 @@ export default {
     };
   },
   created: function() {
-    axios.get('http://localhost:3000/api/users').then(function(response) {
-      console.log(response.data);
-      this.users = response.data;
-    }.bind(this));
+    // axios.get('http://localhost:3000/api/users').then(function(response) {
+    //   console.log(response.data);
+    //   this.users = response.data;
+    // }.bind(this));
   },
   methods: {},
   computed: {}

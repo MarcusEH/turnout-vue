@@ -5,9 +5,8 @@
       <div class="box-dark">
         <a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a>
         <p>Category: {{interest.category}}</p>
-        <p>Level of Interest: {{interest.interest_level}} </p>
-        <p>Category: {{interest.category}}</p> <!--make this drop down-->
-        <p>Level of Interest: <input type="number" v-model="interest.interest_level"> </p>
+        <p>Current Level of Interest: {{interest.interest_level}} </p>
+        <p>New Level of Interest: <input type="number" v-model="interest.interest_level" min=0 max=10> </p>
         <p><button class="btn btn-secondary" @click="submitInterestEdit()">Submit Changes</button> </p>
       </div>
     </div>

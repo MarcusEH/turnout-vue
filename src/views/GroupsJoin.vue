@@ -1,23 +1,29 @@
 <template>
   <div class="groups-join">
-    <h1>{{ message }}</h1>
-    <div v-if="invites.length > 0">
-      <h3>Your invites:</h3>
-      <div v-for="invite in invites">
+    <h1>&nbsp{{ message }}</h1>
+    <h3>&nbspYour invites:</h3>
+    <div class="box-light">
+      <div class="box-inner">
+        <div v-if="invites.length > 0">
+          
+          <div v-for="invite in invites">
+            
+            <p>Group Name: {{invite.group.title}}</p>
+            <!-- <p>{{invite.group.id}} </p> -->
+            <p><button class="btn btn-primary" @click="joinGroup(invite)">Join this Group</button></ins></p>
+          </div>
+        </div>
+        <div v-else>
+          <div class="box-light">
+            <h3>Looks like you currently have no pending invitations! What a shame! If you believe this is an error please contact Turnout support or have your a known group member add your correct email to the invite list. Thanks!</h3>
+          </div>
+          <div class="box-footer">
+          </div>
+        </div>
         
-        <p>Group Name: {{invite.group.title}}</p>
-        <!-- <p>{{invite.group.id}} </p> -->
-        <p><button class="btn btn-primary" @click="joinGroup(invite)">Join this Group</button></ins></p>
       </div>
     </div>
-    <div v-else>
-      <div class="box-light">
-        <h3>Looks like you currently have no pending invitations! What a shame! If you believe this is an error please contact Turnout support or have your a known group member add your correct email to the invite list. Thanks!</h3>
-      </div>
-      <div class="box-footer">
-      </div>
-    </div>
-    <!-- <a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a> -->
+    &nbsp<a v-bind:href="'/#/users/show'" class="btn btn-secondary">Return to Profile</a>
   </div>
 </template>
 

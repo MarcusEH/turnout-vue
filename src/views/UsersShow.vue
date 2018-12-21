@@ -132,7 +132,7 @@
                     <div class="box-inner">
                       <h3>
                         <!--broken link-->
-                        <a class="float-right fs-11 text-warning" href="#">VIEW ALL</a>
+                        <!-- <a class="float-right fs-11 text-warning" href="#">VIEW ALL</a> -->
                         INTERESTS
                       </h3>
                       <div class="h-250 slimscroll" data-always-visible="true" data-size="5px" data-position="right" data-opacity="0.4" disable-body-scroll="true">
@@ -142,7 +142,7 @@
                             <!--here is the interest image-->
                             <!-- <p><img class="thumbnail float-left" src="demo_files/images/people/300x300/3-min.jpg" width="60" height="60" alt="" /> -->
                             <p><h4 class="fs-15 m-0 b-0 p-0 bold">Category: {{interest.category}}</h4></p>
-                            <h4 class="fs-15 m-0 b-0 p-0 bold">Current interest: {{interest.interest_level}}</h4></p>
+                            <h4 class="fs-15 m-0 b-0 p-0 bold">Interest Level: {{interest.interest_level}}</h4></p>
                             <p><a v-bind:href="'/#/interests/' + interest.id + '/edit'" >Edit Interest</a></p>
                             <hr>
                           </div>

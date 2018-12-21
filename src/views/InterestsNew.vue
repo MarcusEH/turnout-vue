@@ -38,7 +38,7 @@
                           <option value="custom">custom</option>
                         </select>
                       <!-- interest level -->
-                        <label>How much does this type of event interest you? (scale 0-10) </label>
+                        <label>How much does this type of event interest you? (scale 0-10) Please click submit after setting each category. </label>
                         <label class="input mb-10">
                           <i class="ico-append fa fa-sort-numeric-desc"></i>
                           <input type="number" v-model="newInterestLevel" min=0 max=10>
